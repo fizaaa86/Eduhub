@@ -1,0 +1,89 @@
+.NavbarItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0 30px;
+    background-color: #fff;
+    width: 95%;
+    height: 80px;
+    position: fixed;
+    top:20px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+/*logo*/
+.title{
+    font-size: 40px;
+}
+
+.logonav
+{
+    display: flex;
+    height: 5rem;
+    font-weight: bold;
+    font-size: 40px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 4%;
+    color: black;
+    font-family: 'Poppins','sans-serif';
+}
+
+
+.logo-img
+{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 0.2rem;
+    font-size: 1.6rem;
+    margin-top: 5px;
+}
+
+/*logo*/
+
+.nav-menu{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    grid-gap: 10px;
+    list-style: none;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+}
+
+
+
+
+/*nav-links*/
+
+.nav-links{
+    text-decoration: none;
+    color: black;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    position: relative;
+}
+.nav-links:hover{
+    color: blue;
+}
+
+.nav-links::after{
+    content: '';
+    height: 4px;
+    width: 100%;
+    background: black;
+    position: absolute;
+    left:0;
+    bottom: -8px;
+    opacity: 0;
+    transition: all 0.2s;
+    pointer-events: none;
+}
+
+.nav-links:hover::after,
+.nav-links:focus::after{
+    opacity: 1;
+}

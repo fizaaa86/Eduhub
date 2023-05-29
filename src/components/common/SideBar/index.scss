@@ -1,0 +1,77 @@
+.react-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50%; /* Update the height to 100% */
+  position: fixed;
+    color:#212121;
+    margin-top: 5%;
+    font-weight: 900px;
+    gap:50px;
+    width:15%;
+    margin-left: 4%;
+    margin-top: 10%;
+    border-left: #fff;
+    border-top: #fff;
+    border-bottom: #fff;
+    border-radius: 2px;
+ 
+
+  }
+
+.react-icon
+  {
+    display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 10px; 
+  
+  }
+
+  .icon-only{
+    margin-top: 5px;
+  }
+.icon-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
+    font-size: 20px;
+    margin-top: 3.5px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: #212121;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .icon-label.underline {
+    position: relative;
+  }
+  
+  .icon-label.underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000; /* Set the color of the underline */
+    transition: 0.35s;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  
+  .icon-label:hover {
+    color: #518de7;
+  }
+  
+  .icon-label:hover::after {
+    transform: scaleX(1);
+  }
+  
+
+
+
+
+
+
