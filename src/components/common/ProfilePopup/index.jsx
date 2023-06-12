@@ -25,6 +25,7 @@ export default function ProfilePopup() {
           })
         }
       />
+      <Button title="Mentor Mode" onClick={() =>navigate('/mentor')}></Button>
       <Button title="Log out" onClick={onLogout} />
     </div>
   );

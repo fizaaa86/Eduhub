@@ -1,55 +1,42 @@
 .topbar-main {
-  width: 100%;
+  width: 60%;
   height: 60px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+ 
   display: flex;
   align-items: center;
   gap:40px;
-  position: fixed;
-  z-index: 100; /* Add this line to set the stacking order */
+  margin-left: 70%;
+
+margin-bottom: 0px;
+  
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-}
 
-.logo {
-  width: 40px;
-  margin-left: 20px;
-}
 
-.logo-label {
-  font-family: 'Poppins', sans-serif;
-  margin-left: 10px;
-}
-
-.Search-bar {
-  display: flex;
-  align-items: center;
-  margin-left: 305px;
-  border: solid black;
-  border-radius: 20px;
-}
-
-.Searching {
-  width: 400px;
-  height: 30px;
-  margin-left: 20px;
-  border-style: hidden;
-}
 .user
 {
   width:35px;
   cursor: pointer;
+  border: 3px solid black;
+  margin-left: 300px;
+  margin-right: 0px;
+  
 }
-.users{
-  margin-left: 25%;
+.username{
+  margin-top: 20px;
+  margin-left: -30px;
+  font-size: 18px;
 }
+
 .popup-position {
   position: absolute;
   right: 10px;
   top: 65px;
   z-index: 99;
+}
+.small-title
+{
+  margin-top: 45px;
+margin-left: -77px;
+font-size: 13px;
 }

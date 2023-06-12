@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+.Payment-sub
+{
+   display: flex;
+   justify-content: space-between;
+}
+.Payment-left
+{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 40px;
+
+margin-left: 300px;
+   padding: 30px;
+   width:600px;
+   
+   margin-right: 0px;
+ 
+}
+.Payment-right
+{
+  
+background-color: rgba(45, 184, 248, 0.1);
+  
+   
+   height: 650px;
+   
+   width:600px;
+   margin-right: -20px;
+   margin-left:0px
+}
+.Payment-right-sub
+{
+   padding: 100px;
+   margin-left:-20px;
+   font-family: 'Montserrat';
+   font-weight: 700;
+   font-size: 30px;
+   margin-bottom: 0px;
+}
+
+.Selected-course
+{
+    font-family: Poppins;
+    font-size: 20px;
+    margin-top: -70px;
+    margin-left: 60px;
+    font-weight: 600;
+}
+.label {
+    margin-right: 200px; /* Adjust the margin value as per your needs */
+    font-family: Montserrat;
+    font-weight: 500;
+    
+  }
+  .Bill-top
+  {
+    margin-top: 60px;
+    font-size: 19px;
+    margin-left: 50px;
+    color:#7a7979;
+  }
+  .Amt
+  {
+    font-family: poppins;
+  }
+  
+  .label1 {
+    margin-right: 235px; /* Adjust the margin value as per your needs */
+    font-family: Montserrat;
+    font-weight: 500;
+    
+  }
+  .line-2
+  {
+    margin-top: 20px;
+  }
+
+  .line-divider {
+    border: none;
+    border-top: 2px solid #ddd;
+   width: 75%;
+   margin-right: 150px;
+   margin-top: 30px;
+  }
+
+   
+  .label3 {
+    margin-right: 210px; /* Adjust the margin value as per your needs */
+    font-family: Montserrat;
+ 
+  }
+  .Total
+  {
+    color: black;
+    font-weight: 900;
+  }
+  
+  .disclaimer
+  {
+    font-size: 12px;
+    font-family: system-ui;
+    margin-top: 20px;
+    margin-left: 3px;
+  }
+
+  .Buy-btn
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 120px;
+    margin-top: 30px;
+    width: 250px;
+    height: 60px;
+    font-size: 25px;
+    padding-right: 10px;
+    font-family: Poppins;
+    font-weight: 900;
+   background-color:  #5c92e3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .Buy-btn:hover
+  {
+    background-color:  #036296;
+  }

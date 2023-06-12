@@ -1,3 +1,6 @@
+$Eduhub1: #0072b1;
+$Eduhub2: #0073b1;
+$Eduhub3: #004c75;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap");
   @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
   @import url("./components/common/Loader/common.scss");
@@ -8,11 +11,29 @@
 
   color-scheme: light dark;
   color: #212121;
-  background-color: #fff;
+  background-color:white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.common-input {
+  height: 30px;
+  padding: 10px;
+  background-color: rgb(227, 227, 227);
+  outline: none;
+  border: 1px solid #212121;
+  font-family: system-ui;
+  color: #212121;
+  border-radius: 3px;
+  margin: 10px 0px;
+}
+.common-input:focus {
+  outline: 1px solid $Eduhub1;
+}
+::placeholder {
+  color: #212121;
 }

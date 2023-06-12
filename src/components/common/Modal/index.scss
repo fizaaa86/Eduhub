@@ -5,5 +5,40 @@
     color: black;
     font-size:16px;
     font-family: system-ui; 
-    width: 100%;
+  width: 100%;
+  resize: none;
+}
+
+.picture-icon{
+   color: #0073b1;
+   cursor: pointer;
+   bottom: 20px;
+}
+.preview-image{
+  width: 100%;
+
+}
+
+.posts-body{
+  display: flex;
+ flex-direction: column;
+}
+
+
+.common{
+  height: 30px;
+  padding: 10px;
+  background-color: white;
+  outline: none;
+  border: 1px solid #212121;
+  font-family: system-ui;
+  color: #212121;
+  border-radius: 3px;
+  margin: 10px 0px;
+}
+.common:focus {
+  outline: 1px solid #0072b1;
+}
+::placeholder {
+  color: #212121;
 }

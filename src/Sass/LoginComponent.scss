@@ -42,24 +42,7 @@ height: 100vh;
     gap: 10px;
     width: 300px;
     
-    .common-input {
-        height: 30px;
-        padding: 10px;
-        background-color: white;
-        outline: none;
-        border: 1px solid #212121;
-        font-family: system-ui;
-        color: #212121;
-        border-radius: 3px;
-        margin: 10px 0px;
-    }
-    .common-input:focus {
-        outline: 1px solid $Eduhub1;
-    }
-    ::placeholder {
-        color: #212121;
-    }
-  }
+}
 .login-btn {
     width: 300px;
     height: 50px;

@@ -1,5 +1,6 @@
 import React from 'react'
 import './index.scss';
+import Logo from "../../../assets/logo.png"
 import {
     AiFillHome,
     AiOutlineUserSwitch,
@@ -15,6 +16,10 @@ export default function SideBar() {
   }
   return (
     <div className='react-icons'>
+      <div className='logo-container'>
+        <img className='logo' src={Logo} alt="Logo" />
+        <h1 className='logo-label'>EduHub</h1>
+      </div>
     <div className='react-icon'>
   <div className='icon-only'>
     <AiFillHome size={20} />
@@ -25,6 +30,7 @@ export default function SideBar() {
 
        
         <div className='react-icon'>
+        
         <div className='icon-only'>
              <AiFillBook size={20} />
         </div> 

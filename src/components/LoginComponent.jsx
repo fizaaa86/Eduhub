@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {LoginAPI,GoogleSignInAPI  } from "../api/AuthAPI";
 import logo from "../assets/logo.png";
+import Navbar from "../components/common/Navbar/Navbar"
 import { useNavigate } from "react-router-dom";
 import '../Sass/LoginComponent.scss';
 import GoogleButton from "react-google-button";
@@ -14,6 +15,7 @@ export default function LoginComponent() {
         try {
         let res = await LoginAPI(credentails.email, credentails.password);
         toast.success("Logged in Successfully");
+        localStorage.setItem('userEmail',res.user.email);
         navigate('/dashboard')
         } catch (err){
             console.log(err);
@@ -28,7 +30,7 @@ export default function LoginComponent() {
     return (
         <div className="login-wrapper">
      
-
+<Navbar />
       <div className="login-wrapper-inner">
         <h1 className="heading">Login</h1>
         <p className="sub-heading">Keep Exploring!</p>

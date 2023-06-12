@@ -1,0 +1,135 @@
+$Eduhub2: #0073b1;
+$Eduhub3: #004c75;
+.Course-detail
+{
+
+
+   
+    height: 900px;
+    
+ 
+    border-radius: 5px;
+  
+
+   
+
+  
+
+    .posting-photo
+    {
+        height: 200px;
+    padding: 50px;
+        width: 300px;
+    }
+
+    .Course-detail-header
+    {
+        background-color: rgba(0,0,0);
+        color: rgba(250,250,250);
+       
+       
+        margin-top: -80px;
+        box-shadow: rgba(0, 0, 0, 0.80) 0px 3px 8px;
+       .posting-coursename-footer
+       {
+        font-family:'Montserrat',sans-serif; 
+        font-weight: 500;
+        margin-top: -15px;
+        margin-left: 50px;
+       }
+        
+    .posting-coursename
+    {
+        font-size: 50px;
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 900;
+        margin-left: 30px;
+      padding: 20px;
+        margin-bottom: 0px;
+    }
+    .Course-title{
+        display: flex;
+        justify-content: space-between;
+    }
+    .blue-underline
+    {
+        cursor: pointer;
+        text-decoration: underline;
+        color: rgb(106, 165, 237);
+    }
+    .course-owner{
+        margin-left:50px ;
+        font-family: 'Poppins';
+        font-size: 13px;
+        margin-bottom:0px ;
+    }
+    .Course-date
+    {
+        margin-left:50px ;
+        margin-top: 0px;
+        font-size: 12px;
+            font-family: 'Poppins';
+    }
+    .sub
+    {
+        display: flex;
+        justify-content: space-between;
+       
+    }
+    .Course-Pricing
+    {
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 900;
+        font-size: 35px;
+        margin-top: 0px;
+    }
+    
+    }
+    .footer{
+        margin-top: 530px;
+      
+        margin-left: 72%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .Cart
+    {
+        width: 200px;
+        height: 50px;
+        cursor: pointer;
+        background-color:rgb(0, 110, 255);
+        color: #ffffff;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        font-family: Poppins;
+        font-weight: 600;
+        font-size: 19px;
+
+     
+    }
+    .Cart:hover{
+        background-color: $Eduhub3;
+    
+    }
+.Payment
+{
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    background-color:rgb(0, 110, 255);
+    color: #ffffff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 19px;
+}
+.Payment:hover{
+    background-color: $Eduhub3;
+}
+
+    
+
+}

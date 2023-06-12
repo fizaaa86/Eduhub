@@ -1,62 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 .Course-status-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  }
+  .Search-bar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+justify-content: center;
+margin-left:0px;
+margin-right: 250px; 
+    border: solid black;
+    border-radius: 20px;
+  }
+  
+  .Searching {
+    width: 400px;
+    height: 30px;
+    margin-left: 20px;
+    border-style: hidden;
+  }
+  .quotation
+  {
+    font-family: 'Montserrat';
+    font-weight: 900;
+    .quote-foot
+    {
+      font-size: 11px;
+      margin-left: 89%;
+      margin-top: 0px;
+      font-family: system-ui;
+      font-weight: 400;
+    }
+    .quote-head{
+      margin-bottom: 0px;
+    }
+  }
+  .Page-title
+  {
+    margin-left: -820px;
+    text-decoration: underline;
+    color: rgb(41, 89, 233);
+    display: flex;
+    justify-content: space-between;
+    .Page-title-home{
+      color: black;
+      text-decoration: none;
+    }
   }
   
   .Course-status {
-    width: 30%;
+    width: 550px;
     height: 120px;
     background-color: whitesmoke;
     margin-top: 30px;
     border: 1px solid #b7b7b7;
-    border-radius: 10px;
+    border-radius: 7px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    transition: all 0.3s ease; /* Add transition for smooth effect */
+    justify-content: space-around;
+    align-items: center; 
   }
   
-  .Course-status.scrolled {
-    transform: translateY(-100%); /* Move the top row up when scrolled */
-  }
+ 
   
   .open-course-modal {
-    width: 60%;
-    height: 40px;
-    text-align: left;
-    color: rgba(0, 0, 0, 0.89);
-    background-color: whitesmoke;
-    outline: none;
-    border: 1px solid #b7b7b7;
-    border-radius: 30px;
-    cursor: pointer;
-    padding: 15px;
-    font-family: 'Montserrat', sans-serif;
+    width: 80%;
+      height: 50px;
+      text-align: left;
+      color: rgba(84, 84, 84, 0.89);
+      background-color: whitesmoke;
+      outline: none;
+      border: 1px solid #b7b7b7;
+      border-radius: 30px;
+      margin-left: -30px;
+      cursor: pointer;
+      padding: 15px;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: system-ui, sans-serif;
   }
   
   .open-course-modal:hover {
     background-color: #dcdbdb;
   }
   
-  .post-cards
-  
-
-.post-cards-container {
-  height: 400px; /* Set a fixed height for the container */
-  overflow-y: scroll; /* Enable vertical scrolling */
-  margin-top: 10px; /* Adjust margin as needed */
-}
-
-.post-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.post-cards > * {
-  flex: 0 0 30%; /* Adjust the width of each post card */
-}
+ 

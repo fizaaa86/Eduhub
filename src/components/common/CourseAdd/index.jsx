@@ -1,52 +1,59 @@
 import React ,{useState, useMemo }from 'react'
-import { courseStatus, getStatus} from '../../../api/FirestoreAPI';
+import {  getStatus} from '../../../api/FirestoreAPI';
 import './index.scss';
+import { AiOutlineSearch } from 'react-icons/ai';
 import CourseCard from '../CourseCard';
+import CourseDetails from '../CourseDetails';
 import ModalComponent from "../Modal";
+import { getUniqueId } from '../../../helpers/getUniqueId';
+import { uploadPostImage } from '../../../api/ImageUpload';
 import { getCurrentTimeStamp } from '../../../helpers/useMoment';
-export default function CourseStatus() {
-    const [modalOpen, setModalOpen] = useState(false);
-    const [status, setStatus] = useState('');
-    const [allStatuses,setAllStatus] = useState([]);
-    const sendStatus =  async () => {
-      let object = {
-        status: status,
-        timeStamp: getCurrentTimeStamp('LLL'),
-      };
-      await  courseStatus(status);
-      await setModalOpen(false);
-      await setStatus("");
-    };
-    console.log(getCurrentTimeStamp('LLL'));
+export default function CourseStatus({currentUser} ) {
+  const [allStatuses, setAllStatus] = useState([]);
     useMemo(() =>{
 getStatus(setAllStatus);
     },[]);
-    
+
+   
   return (
     <>
   
     <div className='Course-status-main'>
-        <div className='Course-status'>
-            <button className='open-course-modal'onClick={() => setModalOpen(true)}>
-                Create a new course
-                </button>
-         </div>
-         <ModalComponent 
-          setStatus= {setStatus}
-          modalOpen={modalOpen} 
-          setModalOpen={setModalOpen} 
-          status={status}
-          sendStatus={sendStatus}
-          />
+   
+  <div className="Search-bar">
+        <input className="Searching"type='text' placeholder='Search' />
+        <AiOutlineSearch />
+      </div>
+
+      <div className='quotation'>
+        <h1 className='quote-head'>"An Investment in Knowledge pays the Best Interest" </h1>
+        <p className="quote-foot">-Benjamin Franklin</p>
+      </div>
+      <div className='Page-title'>
+        <p className='Page-title-home'>Home     |</p>
+        
+        <p>Courses</p>
+      </div>
+        
           <div className='post-cards'>
           {allStatuses.map((posts) => {
-              return <CourseCard posts ={posts} />;
+              return (
+                <div key={posts.id}>
+                  <CourseCard posts={posts} id={posts.id} />
+
+                
+                </div>
+                
+              );
+            })}
+  
             
-          })}
+
+            
+
+
           </div>
     </div>
     </>
   )
 }
-
-

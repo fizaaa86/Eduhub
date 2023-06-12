@@ -1,0 +1,55 @@
+.profile-card{
+    width: 800px;
+    height: 550px;
+    background-color: whitesmoke;
+    margin-top: 100px;
+    border-radius: 5px;
+    padding: 20px;
+
+   
+    margin-left: 400px;
+    padding: 30px;
+
+
+    .profile-info{
+        display: flex;
+    }
+    .user-name{
+        font-family: 'Poppins',sans-serif;
+        color: rgba(0,0,0,0.9);
+        font-weight: 600;
+        font-size: 24px;
+    }
+    .user-email{
+        margin-top: -20px;
+        font-family: 'system-ui';
+        color: rgba(0,0,0,0.6);
+        font-size: 14px;
+    }
+
+    .Fullname{
+        font-size: 18px;
+        margin-top: -25px;
+        color: rgba(0,0,0,0.9);
+    }
+
+    .Yos{
+        color: rgba(0,0,0,0.9);
+        font-size: 14px;
+        margin-top: -10px;
+    }
+
+    .Branch{
+        color: rgba(0,0,0,0.9);
+        font-size: 14px;
+        margin-top: -10px;
+    }
+    .edit-btn{
+        position: absolute;
+        right: 20px;
+        button{
+            background-color: white;
+            cursor: pointer;
+        }
+    }
+}

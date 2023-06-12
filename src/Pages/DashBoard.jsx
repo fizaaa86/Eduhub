@@ -4,7 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from "../firebaseConfig";
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/common/Loader/Loader';
-export default function DashBoard() {
+export default function DashBoard({currentUser}) {
     const [loading, setLoading] = useState(true);
     let navigate = useNavigate();
     useEffect(() =>{
@@ -17,5 +17,5 @@ export default function DashBoard() {
             }
         })
     },[])
-    return loading ? <Loader /> : <DashBoardComponent />;
+    return loading ? <Loader /> : <DashBoardComponent  currentUser={currentUser}/>;
 }
