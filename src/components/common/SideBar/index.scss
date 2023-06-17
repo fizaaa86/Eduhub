@@ -20,17 +20,22 @@ margin-top:-60px;
   .logo-container {
     display: flex;
     align-items: center;
-    margin-left: 1px;
+    margin-left: px;
   }
-  
+  .cusat-logo
+  {
+    width: 30px;
+  }
   .logo {
     width: 40px;
     margin-left: 20px;
   }
   
-  .logo-label {
+  .logo-name {
     font-family: 'Poppins', sans-serif;
-    margin-left: 10px;
+    margin-left: 5px;
+    font-size: 35px;
+   
   }
   
 

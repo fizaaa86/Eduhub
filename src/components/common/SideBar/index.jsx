@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.scss';
 import Logo from "../../../assets/logo.png"
+import cusat from "../../../assets/cusat.png"
 import {
     AiFillHome,
     AiOutlineUserSwitch,
@@ -18,7 +19,7 @@ export default function SideBar() {
     <div className='react-icons'>
       <div className='logo-container'>
         <img className='logo' src={Logo} alt="Logo" />
-        <h1 className='logo-label'>EduHub</h1>
+        <h1 className='logo-name'>EduHub</h1>
       </div>
     <div className='react-icon'>
   <div className='icon-only'>
@@ -34,7 +35,7 @@ export default function SideBar() {
         <div className='icon-only'>
              <AiFillBook size={20} />
         </div> 
-        <span className="icon-label underline" >Courses</span>
+        <span className="icon-label underline" onClick={() => goToRoute("/mycourses")} >Courses</span>
   <hr className="horizontal-line" />
   </div>
         <div className='react-icon'>
@@ -46,16 +47,16 @@ export default function SideBar() {
   </div>
         <div className='react-icon'>
         <div className='icon-only'>
-        <AiFillMessage size={20} />
+        <img className='cusat-logo' src={cusat} />
         </div> 
-        <span className="icon-label underline">Notifications</span>
+        <span className="icon-label underline" onClick={() => goToRoute("/Cusat")}>Cusat</span>
   <hr className="horizontal-line" />
   </div>
         <div className='react-icon'>
         <div className='icon-only'>
         <AiOutlineLogout size={20}/>
         </div> 
-        <span className="icon-label underline">Logout</span>
+        <span className="icon-label underline">Help</span>
   <hr className="horizontal-line" />
   </div>
     </div>

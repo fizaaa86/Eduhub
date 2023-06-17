@@ -19,6 +19,8 @@ const Modal1 = ({
       setModal2Open,
       sendStatus,
   status,
+  Feature6,setFeature6,
+  description,setdescription
    
   }) => {
 
@@ -77,6 +79,19 @@ const Modal1 = ({
             name="Feature-5"
             value={Feature5}
           />
+           <input
+            onChange={(event) =>  setFeature6(event.target.value)}
+            className="common-input"
+            placeholder="Feature-6"
+            name="Feature-6"
+            value={Feature6}
+          />
+          <textarea
+          placeholder='App description'
+          value={description}
+          onChange={(event) =>  setdescription(event.target.value)}
+         
+        />
             </div>
            
           </Modal>

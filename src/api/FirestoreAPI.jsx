@@ -54,6 +54,17 @@ export const getStatus = (setAllStatus) => {
   });
 };
 
+export const getVideos = (setOwned) => {
+  const q = query(postsRef, orderBy("timeStamp"));
+  onSnapshot(q, (response) => {
+    setOwned(
+      response.docs.map((docs) => {
+        return { ...docs.data(), id: docs.id };
+      })
+    );
+  });
+};
+
 export const getPrice = (setPrices,id) => {
   const singlePriceQuery = query(postsRef, where("postID", "==", id));
   onSnapshot(singlePriceQuery, (response) => {

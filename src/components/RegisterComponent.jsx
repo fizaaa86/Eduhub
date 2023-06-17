@@ -6,7 +6,7 @@ import '../Sass/LoginComponent.scss';
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
-
+import Navbar from "../components/common/Navbar/Navbar"
 export default function RegisterComponent() {
     let navigate = useNavigate();
     const [credentails, setCredentials] = useState({});
@@ -28,7 +28,7 @@ export default function RegisterComponent() {
     }
     return (
         <div className="login-wrapper">
-      <img src={logo} className="logo-img" />
+      <Navbar />
 
       <div className="login-wrapper-inner">
         <h1 className="heading">Register</h1>

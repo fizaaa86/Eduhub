@@ -8,7 +8,8 @@ import CourseLayout from "../layouts/CourseLayout"
 import MyCoursesLayout from "../layouts/MyCoursesLayout";
 import PaymentPage from "../components/common/PaymentPage";
 import MentorLayout from "../layouts/MentorLayout";
-
+import TheOwned from "../components/common/TheOwned";
+import Cusat from "../Pages/Cusat";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -59,5 +60,14 @@ export const router = createBrowserRouter([
       path: "/mentor",
       element: <MentorLayout />,
     },
+    {
+      path: "/myCourse",
+      element: <TheOwned />
+    },
+    {
+      path: "/Cusat",
+      element: <Cusat />
+    }
+
 
   ]);

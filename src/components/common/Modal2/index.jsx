@@ -18,53 +18,39 @@ const Modal2 = ({
   const [imageUrls, setImageUrls] = useState([]);
   const imagesListRef = ref(storage, `${CourseName}/`);
 
-  const uploadFiles = () => {
-    const files = Array.from(imageUpload);
-    const promises = files.map((file) => {
-      return new Promise((resolve, reject) => {
-        const imageRef = ref(storage, `${CourseName}/${file.name}`);
-        uploadBytesResumable(imageRef, file).then((snapshot) => {
-          setProgress(Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          )
-          );
-          console.log(progress);    
-          getDownloadURL(snapshot.ref)
-            .then((url) => {
-              resolve(url);
-            })
-            .catch((error) => reject(error));
-        });
-      });
-    });
+  const uploadFiles = async () => {
+    try {
+      const files = Array.from(imageUpload);
+      const urls = [];
 
-    Promise.all(promises)
-      .then((urls) => {
-        setImageUrls((prev) => [...prev, ...urls]);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      for (const file of files) {
+        const imageRef = ref(storage, `${CourseName}/${file.name}`);
+        const snapshot = await uploadBytesResumable(imageRef, file);
+        setProgress(Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100));
+
+        const url = await getDownloadURL(snapshot.ref);
+        urls.push(url);
+      }
+
+      setImageUrls(prev => [...prev, ...urls]);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
-    listAll(imagesListRef)
-      .then((response) => {
-        const promises = response.items.map((item) => {
-          return getDownloadURL(item);
-        });
-
-        Promise.all(promises)
-          .then((urls) => {
-            setImageUrls((prev) => [...prev, ...urls]);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      })
-      .catch((error) => {
+    const fetchImageUrls = async () => {
+      try {
+        const response = await listAll(imagesListRef);
+        const promises = response.items.map(item => getDownloadURL(item));
+        const urls = await Promise.all(promises);
+        setImageUrls(prev => [...prev, ...urls]);
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    fetchImageUrls();
   }, []);
 
   return (
@@ -72,7 +58,7 @@ const Modal2 = ({
       <Modal
         title="Upload Videos"
         centered
-        open={modal2Open}
+        visible={modal2Open}
         onOk={() => setModal2Open(false)}
         onCancel={() => setModal2Open(false)}
         footer={[
@@ -94,14 +80,16 @@ const Modal2 = ({
         />
         <button onClick={uploadFiles}>Upload Images</button>
         {imageUrls.map((url) => {
-          return <img src={url} alt="uploaded" key={url} />;
-          {progress === 0 || progress === 100 ? (
-            <></>
-          ) : (
-            <div className="progress-bar">
-              <Progress type="circle" percent={progress} />
-            </div>
-          )}
+          return (
+            <React.Fragment key={url}>
+              <img src={url} alt="uploaded" />
+              {(progress === 0 || progress === 100) ? null : (
+                <div className="progress-bar">
+                  <Progress type="circle" percent={progress} />
+                </div>
+              )}
+            </React.Fragment>
+          );
         })}
       </Modal>
     </>

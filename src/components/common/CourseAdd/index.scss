@@ -10,17 +10,18 @@
     display: flex;
     align-items: center;
 justify-content: center;
-margin-left:0px;
+margin-left: -100px;
 margin-right: 250px; 
-    border: solid black;
+border-style: hidden;
     border-radius: 20px;
   }
   
   .Searching {
     width: 400px;
     height: 30px;
-    margin-left: 20px;
+
     border-style: hidden;
+    
   }
   .quotation
   {

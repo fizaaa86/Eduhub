@@ -12,11 +12,11 @@ export default function DashboardLayout() {
   return (
     <div className='main'>
       <div className='main-header'>
-     
+      <Course currentUser={currentUser} />
       </div>
      
       <div className='dashboard-content'>
-        <Course currentUser={currentUser} />
+        
       </div>
     </div>
   );

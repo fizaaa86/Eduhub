@@ -1,0 +1,21 @@
+.Videos {
+    display: flex;
+   flex-direction: column;
+   margin-left: 500px;
+   margin-bottom: 100px;
+  }
+  
+  .Videos video {
+    width: 100%; /* Set the width of the video element to 100% of its container */
+    max-width: 400px; /* Set a maximum width to limit the size of the video */
+    margin-bottom: 10px; /* Add some margin between videos */
+  }
+  
+  .Video-header
+  {
+    margin-left: 50px;
+    margin-top: 100px;
+    font-family: Montserrat;
+    font-weight: 900;
+    font-size: 25px;
+  }

@@ -1,0 +1,232 @@
+$Eduhub2: #0073b1;
+$Eduhub3: #004c75;
+.Cusat-detail
+{
+
+
+   
+    height: 600px;
+    
+ 
+    border-radius: 5px;
+  
+
+   
+
+  
+
+    .posting-photo
+    {
+        height: 200px;
+    padding: 50px;
+        width: 300px;
+    }
+
+    .Cusat-detail-header
+    {
+        
+        
+       
+       
+        margin-top: 5px;
+       
+       .posting-coursename-footer
+       {
+        font-family:'Montserrat',sans-serif; 
+        font-weight: 900;
+        margin-top: -15px;
+        margin-left: 50px;
+       }
+        
+    .Cusat-coursename
+    {
+        font-size: 40px;
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 900;
+        margin-left: 30px;
+      padding: 20px;
+        margin-bottom: 0px;
+    }
+
+    .left-section
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+    .bottom
+    {
+        display: flex;
+        justify-content: center;
+    }
+    .bottomer
+    {
+        font-family: 'Montserrat',sans-serif;
+        font-size: 20px;
+        margin-left: 300px;
+        width: 30%;
+        margin-top: -20px;
+       font-weight: 900px;
+    }
+    .cusat-img
+    {
+        width:100px;
+        height: 100px;
+        margin-left: 50px;
+      margin-top: 30px;
+    }
+    .Cusat-title{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        color: rgba(250,250,250);
+        
+    }
+    .image-loader
+    {
+        margin-left:800px;
+    }
+    .blue-underline
+    {
+        cursor: pointer;
+        text-decoration: underline;
+        color: rgb(106, 165, 237);
+    }
+    .course-owner{
+        margin-left:50px ;
+        font-family: 'Poppins';
+        font-size: 13px;
+        margin-bottom:0px ;
+    }
+    .Course-date
+    {
+        margin-left:50px ;
+        margin-top: 0px;
+        font-size: 12px;
+            font-family: 'Poppins';
+    }
+    .sub
+    {
+        display: flex;
+        justify-content: space-between;
+       
+    }
+    .Course-Pricing
+    {
+        font-family: 'Montserrat',sans-serif;
+        font-weight: 900;
+        font-size: 35px;
+        margin-top: 0px;
+    }
+    
+    }
+    
+
+
+.desc-heading
+{
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: -10px;
+    text-decoration: underline;
+}
+
+.App-desc
+{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.desc-sub
+{
+    
+    font-family: Montserrat;
+    font-size: 18px;
+
+    line-height: 2.5;
+}
+.mini-title
+{
+    margin-top: 30px;
+    margin-left: 50px;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 900;
+    text-decoration: underline;
+}
+    .mini-features
+    {
+        
+        display: flex;
+       margin-left: 50px;
+        font-family: Montserrat;
+        font-size: 18px;
+       
+        
+     
+       
+    }
+    ul 
+    {
+        
+        
+    }
+    li
+    {
+        list-style:none;
+        
+        
+    }
+   .short-title
+   {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    font-size: 20px;
+   }
+   .rows
+   {
+    margin-left: -40px;
+    margin-top: -20px;
+    line-height: 2.5;
+   }
+   .selection
+   {
+    height: 40px;
+ width: 200px;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  border: 1px solid #212121;
+  font-family: Montserrat;
+  font-weight: 600;
+  color: #212121;
+  border-radius: 3px;
+  margin: 10px 0px;
+   }
+   .selection:focus {
+    outline: 1px solid #0072b1;;
+  }
+  .footer-heading
+  {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-size: 20px;
+   
+  }
+  .footer
+  {
+    margin-left: 50px;
+    margin-bottom: 90px;
+    height: 300px;
+  }
+
+}
+
+
+
+

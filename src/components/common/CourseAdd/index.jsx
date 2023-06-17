@@ -19,22 +19,23 @@ getStatus(setAllStatus);
     <>
   
     <div className='Course-status-main'>
-   
-  <div className="Search-bar">
-        <input className="Searching"type='text' placeholder='Search' />
-        <AiOutlineSearch />
-      </div>
+ 
 
       <div className='quotation'>
         <h1 className='quote-head'>"An Investment in Knowledge pays the Best Interest" </h1>
         <p className="quote-foot">-Benjamin Franklin</p>
       </div>
+      
       <div className='Page-title'>
         <p className='Page-title-home'>Home     |</p>
         
         <p>Courses</p>
       </div>
-        
+          
+  <div className="Search-bar">
+        <input className="Searching"type='text' placeholder='Search' />
+        <AiOutlineSearch />
+      </div>
           <div className='post-cards'>
           {allStatuses.map((posts) => {
               return (

@@ -24,7 +24,8 @@ export default function MentorPage({ currentUser }) {
   const [Feature3,setFeature3] = useState('');
   const [Feature4,setFeature4] = useState('');
   const [Feature5,setFeature5] = useState('');
-
+  const [Feature6,setFeature6] = useState('');
+  const [description,setdescription] = useState('');
 const [postID,setPostID] = useState('');
   const sendStatus = async () => {
     let object = {
@@ -40,7 +41,9 @@ const [postID,setPostID] = useState('');
       Feature2: Feature2,
       Feature3: Feature3,
       Feature4: Feature4,
-      Feature5: Feature5
+      Feature5: Feature5,
+      Feature6: Feature6,
+      description:description
      
     };
     setPostID(object.postID);
@@ -118,9 +121,14 @@ const [postID,setPostID] = useState('');
       setFeature4={setFeature4}
       Feature5={Feature5}
       setFeature5={setFeature5}
+      Feature6={Feature6}
+      setFeature6={setFeature6}
       modal2Open={modal2Open}
         setModal2Open={setModal2Open}
         sendStatus={sendStatus}
+        description={description}
+        setdescription={setdescription}
+
       />
 
       <div className='Mentor-cards'>

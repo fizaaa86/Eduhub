@@ -3,19 +3,40 @@ import './index.scss';
 import { useLocation } from 'react-router-dom';
 import { getSingleStatus, createFirestoreCollection } from '../../../api/FirestoreAPI'; // Assuming you have a function for creating a Firestore collection
 import { useNavigate } from 'react-router-dom';
+import { storage } from "../../../firebaseConfig";
 import PaymentPage from '../PaymentPage';
+import {
+    ref,
+    uploadBytes,
+    getDownloadURL,
+    listAll,
+    list,
+  } from "firebase/storage";
 
-export default function CourseDetails({ currentUser,id }) {
+export default function TheOwned() {
   let location = useLocation();
   let navigate = useNavigate();
   const [posts, setPosts] = useState([]);
-
+  const [videoUrls, setvideoUrls] = useState([]);
+  const VideosListRef = ref(storage, "React/");
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setPosts, location?.state?.id);
     }
   }, []);
-
+  useMemo(() => {
+    if (videoUrls.length === 0) { // Check if videoUrls array is empty before fetching URLs
+      listAll(VideosListRef).then((response) => {
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            setvideoUrls((prev) => [...prev, url]);
+          });
+        });
+      });
+    }
+  }, []); // Add VideosListRef and videoUrls.length as dependencies
+  
+  
   const handleCreateCollection = (data) => {
     createFirestoreCollection(data); // Call your Firestore function with the data object
   };
@@ -72,22 +93,20 @@ export default function CourseDetails({ currentUser,id }) {
               <p className='desc-heading'>Description</p>
               <div className='desc-sub'>{posting.description}</div>
                 </div>
-              <div className='App-features'>
-                
-                <ul>
-                  <div className='row'>
-                  <li>{posting.Feature1}</li>
-                <li>{posting.Feature2}</li>
-                  </div>
-              <div className='row'>
-              <li>{posting.Feature3}</li>
-                <li>{posting.Feature4}</li>
-              </div>
-               <div className='row'>
-               <li>{posting.Feature5}</li>
-                <li>{posting.Feature6}</li>
-               </div>
-                </ul>
+
+                <div className='Video-header'>
+                          Videos
+                    </div>
+             <div className='Videos'>
+              
+             {videoUrls.map((url) => {
+       return( 
+        <div key={url.id}>
+            <video controls>
+            <source src={url}></source>
+       </video> 
+       </div>
+         ); })}
                 </div>
             </div>
           );
@@ -95,21 +114,8 @@ export default function CourseDetails({ currentUser,id }) {
       </div>
       <div className='footer'>
        
-        {posts.map((posting) => {
-          // Create the data object
-          const data = {
-            CourseName: posting.CourseName,
-            status: posting.status,
-            Price: posting.Price,
-            postImage: posting.postImage,
-          };
-
-          return (
-            <button key={posting.id} className='Payment' onClick={() => handleBuyClick(data)}>
-              Purchase
-            </button>
-          );
-        })}
+         b
+        
       </div>
     </div>
   );
