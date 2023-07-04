@@ -6,7 +6,7 @@
     border-radius: 5px;
     display: flex;
     justify-content: center;
-  
+  margin-left: 0px;
     flex-direction: column;
     padding: 20px;
     .name {
@@ -17,8 +17,15 @@
       margin-top: -7px;
     }
   
-    .headline {
+    .headlining {
       font-size: 14px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.9);
+      margin-top: -15px;
+    }
+    .YearOfStudy
+    {
+      font-size: 13px;
       font-weight: 400;
       color: rgba(0, 0, 0, 0.9);
       margin-top: -15px;

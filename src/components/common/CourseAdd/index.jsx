@@ -1,60 +1,45 @@
-import React ,{useState, useMemo }from 'react'
-import {  getStatus} from '../../../api/FirestoreAPI';
+import React, { useState, useMemo } from 'react';
+import { getStatus } from '../../../api/FirestoreAPI';
 import './index.scss';
-import { AiOutlineSearch } from 'react-icons/ai';
-import CourseCard from '../CourseCard';
-import CourseDetails from '../CourseDetails';
-import ModalComponent from "../Modal";
-import { getUniqueId } from '../../../helpers/getUniqueId';
-import { uploadPostImage } from '../../../api/ImageUpload';
-import { getCurrentTimeStamp } from '../../../helpers/useMoment';
-export default function CourseStatus({currentUser} ) {
-  const [allStatuses, setAllStatus] = useState([]);
-    useMemo(() =>{
-getStatus(setAllStatus);
-    },[]);
+import { AiFillHome } from 'react-icons/ai';
 
-   
+import CourseCard from '../CourseCard';
+import user from '../../../assets/user.png';
+import Search from '../Search';
+export default function CourseStatus({ currentUser }) {
+  const [allStatuses, setAllStatus] = useState([]);
+  const [searchInput, setsearchInput] = useState("");
+  useMemo(() => {
+    getStatus(setAllStatus);
+  }, []);
+
+  const imageSrc = currentUser.imageLink ? currentUser.imageLink : user;
+
   return (
     <>
-  
-    <div className='Course-status-main'>
- 
+      <div className='Course-status-main'>
+      <div className='searches'>
+        <Search setsearchInput={setsearchInput} searchInput={searchInput} />
+      </div>
+        <img className='user-img' src={imageSrc} alt="user" />
+        <p className='welcoming'>Welcome,</p>
+        <p className='my'> Student {currentUser.name}</p>
 
-      <div className='quotation'>
-        <h1 className='quote-head'>"An Investment in Knowledge pays the Best Interest" </h1>
-        <p className="quote-foot">-Benjamin Franklin</p>
-      </div>
-      
-      <div className='Page-title'>
-        <p className='Page-title-home'>Home     |</p>
-        
-        <p>Courses</p>
-      </div>
-          
-  <div className="Search-bar">
-        <input className="Searching"type='text' placeholder='Search' />
-        <AiOutlineSearch />
-      </div>
-          <div className='post-cards'>
+        <div className='Page-title'>
+          <div className='home-icon'><AiFillHome /></div>
+          <p className='Page-title-home'>Home</p>
+        </div>
+
+        <div className='post-cardings'>
           {allStatuses.map((posts) => {
-              return (
-                <div key={posts.id}>
-                  <CourseCard posts={posts} id={posts.id} />
-
-                
-                </div>
-                
-              );
-            })}
-  
-            
-
-            
-
-
-          </div>
-    </div>
+            return (
+              <div key={posts.id}>
+                <CourseCard posts={posts} id={posts.id} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
-  )
+  );
 }

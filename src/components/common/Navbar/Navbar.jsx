@@ -8,7 +8,7 @@ class Navbar extends Component{
         return(
             <nav className="NavbarItems">
         <h1 className="logonav">
-        <img className="logo-img"src={Logo} alt="logo"  width="40px"></img> 
+       
         <h1 className="title">EduHub</h1>
         </h1>
         

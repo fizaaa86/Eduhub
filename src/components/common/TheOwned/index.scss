@@ -1,10 +1,46 @@
 .Videos {
     display: flex;
    flex-direction: column;
-   margin-left: 500px;
+   margin-left: 40px;
    margin-bottom: 100px;
+   margin-top: 20px;
   }
   
+  .Videobox
+  {
+    border: 2px solid black;
+    width: 90%;
+    margin-top: 40px;
+    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .Videonumbering
+  {
+    margin-left: 800px;
+ margin-top: 250px;
+  }
+  .videotags
+  {
+    margin-top: 10px;
+    padding-top: 100px;
+    margin-left: 55px;
+   margin-left: 10px;
+    font-size: 20px;
+    padding-bottom: -90px;
+    font-family: montserrat;
+    font-weight: 900;
+  }
+
+  .videosource
+  {
+    padding-top: 30px;
+   margin-left: 930px;
+   margin-top: -200px;
+    
+    
+  }
   .Videos video {
     width: 100%; /* Set the width of the video element to 100% of its container */
     max-width: 400px; /* Set a maximum width to limit the size of the video */
@@ -18,4 +54,57 @@
     font-family: Montserrat;
     font-weight: 900;
     font-size: 25px;
+  }
+  .reviews
+  {
+   border-radius: 10px;
+    background-color: rgb(244, 239, 239);
+    height: 120px;
+    width: 800px;
+    margin-left: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+  }
+  .review-inner
+  {
+    display: flex;
+  }
+  .course-footing
+  {
+    height: 120px;
+  
+    padding:40px;
+    margin-left: 60px;
+   
+    margin-bottom: -20px;
+  }
+  .comment-input
+  {
+    height: 25px;
+    background-color: whitesmoke;
+    padding: 7px;
+    border-radius: 30px;
+    border: 1px solid #3b3b3b;
+    font-family: montserrat;
+    font-size: 14px;
+    width: 97%;
+  }
+  .comment-input:focus
+  {
+    outline: 1px solid #949494;
+    color:#949494;
+  }
+  .add.review
+  {
+    width: 150px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: #227ad3;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    border-radius: 7px;
   }

@@ -23,47 +23,58 @@ export default function ProfileEdit({ onEdit, currentUser }) {
       </div>
 
       <div className="profile-edit-inputs">
-        <label>Name</label>
+        
+        <label>Full Name</label>
         <input
           onChange={getInput}
-          className="common-input"
-          placeholder="Name"
-          name="name"
-          value={editInputs.name}
+          className="common-inputs"
+          placeholder="Full Name"
+          value={editInputs.Fullname}
+          name="Fullname"
         />
-        <label>Headline</label>
+       <label>Branch</label>
         <input
           onChange={getInput}
-          className="common-input"
-          placeholder="Headline"
-          value={editInputs.headline}
-          name="headline"
+          className="common-inputs"
+          placeholder="Branch"
+          name="Branch"
+          value={editInputs.Branch}
         />
-        <label>YOS</label>
+        <label>Year of Study</label>
         <input
           onChange={getInput}
-          className="common-input"
+          className="common-inputs"
           placeholder="Year of Study"
           name="YOS"
           value={editInputs.YOS}
         />
-        <label>Company</label>
+       <label>Phone</label>
         <input
           onChange={getInput}
-          className="common-input"
-          placeholder="Company"
-          value={editInputs.company}
-          name="company"
+          className="common-inputs"
+          placeholder="Phone"
+          name="phone"
+          value={editInputs.phone}
         />
-        <label>Skills</label>
-        <input
-          onChange={getInput}
-          className="common-input"
-          placeholder="Skill"
-          name="skills"
-          value={editInputs.skills}
-        />
+      <label>GitHub</label>
+              <input
+                onChange={getInput}
+                className="common-inputs"
+                placeholder="GitHub"
+                name="GitHub"
+                value={editInputs.GitHub}
+       />
+       <label>LinkedIn</label>
+              <input
+                onChange={getInput}
+                className="common-inputs"
+                placeholder="LinkedIn"
+                name="LinkedIn"
+                value={editInputs.LinkedIn}
+       />
+      
       </div>
+      
       <div className="save-container">
         <button className="save-btn" onClick={updateProfileData}>
           Save

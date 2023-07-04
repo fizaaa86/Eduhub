@@ -19,9 +19,10 @@ export default function CourseCard({ posts, id }) {
   }
 
   return (
-    <div className='posts-card' key={id}>
+    <div className='posts-card' key={id} >
      
-      <p className="Course-Name">{posts.CourseName}</p>
+      <p className="Course-Name"onClick={() => navigate('/Course', {
+      state: { id: posts?.postID, email: posts.userEmail },})}>{posts.CourseName}</p>
       <p className='status'>{posts.status}</p>
       <p
         className='name'
@@ -33,23 +34,27 @@ export default function CourseCard({ posts, id }) {
       >
         {posts.userName}
       </p>
+      <div className="likings">
+      <LikeButton userId={currentUser?.id} postId={posts.id} />
+      </div>
+    
       <p className='timestamp'>{posts.timeStamp}</p>
      
      <img
         className='post-photo'
         src={posts.postImage}
         alt='post-image'
-        onClick={() => navigate('/Course', {
-          state: { id: posts?.postID, email: posts.userEmail },})}
+       
         />
-      <div className='bottom'>
-      <p className='Course-Price'> &#8377; {posts.Price}</p>
+      
+      <div className='Course-Price'><p className='rupee'> &#8377; </p>
+      <p className='amt-course'>{posts.Price}</p></div>
       <p className='Like-btn'></p>
    
 
 
-      <LikeButton userID={currentUser?.id} postId={posts.id} />
-      </div>
+      
+   
       
 
       <div>

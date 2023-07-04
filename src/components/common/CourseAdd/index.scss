@@ -6,50 +6,69 @@
   flex-direction: column;
   position: relative;
   }
-  .Search-bar {
+  
+  .searches
+  {
+   margin-top: 10px;
+  }
+  .search-results
+  {
+    width: 400px;
+    border-radius: 10px;
+    height: 150px;
+    border: 2px solid #bbbb;
+    background-color:whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-left: 0px;
     display: flex;
-    align-items: center;
-justify-content: center;
-margin-left: -100px;
-margin-right: 250px; 
-border-style: hidden;
-    border-radius: 20px;
+    flex-direction: column;
   }
   
-  .Searching {
-    width: 400px;
-    height: 30px;
+.home-icon
+{
+  margin-top: 18px;
+  margin-right: 5px;
+  color: rgb(128, 127, 127);
+}
 
-    border-style: hidden;
-    
-  }
-  .quotation
+  .user-img
   {
-    font-family: 'Montserrat';
-    font-weight: 900;
-    .quote-foot
-    {
-      font-size: 11px;
-      margin-left: 89%;
-      margin-top: 0px;
-      font-family: system-ui;
-      font-weight: 400;
-    }
-    .quote-head{
-      margin-bottom: 0px;
-    }
+    width:25px;
+    height: 25px;
+    cursor: pointer;
+   
+    margin-left: -950px;
+    margin-right: 0px;
+    margin-top: -45px;
+    border-radius: 100px;
   }
-  .Page-title
+  .welcoming
+  {
+    margin-left: -830px;
+     margin-top: -28px;
+     font-family: Montserrat;
+     color: #b0b0b0;
+     font-weight: 600;
+     font-size:13px;
+  }
+  .my
   {
     margin-left: -820px;
-    text-decoration: underline;
-    color: rgb(41, 89, 233);
+    margin-top: -18px;
+    font-size: 12px;
+    font-family: Montserrat;
+    font-weight: 700;
+    
+  }
+  
+  .Page-title
+  {
+    margin-left: -900px;
+    margin-top: 30px;
+   font-family: montserrat;
     display: flex;
     justify-content: space-between;
-    .Page-title-home{
-      color: black;
-      text-decoration: none;
-    }
+    font-weight: 600;
   }
   
   .Course-status {
@@ -63,8 +82,7 @@ border-style: hidden;
     justify-content: space-around;
     align-items: center; 
   }
-  
- 
+
   
   .open-course-modal {
     width: 80%;
@@ -82,9 +100,9 @@ border-style: hidden;
       font-size: 14px;
       font-family: system-ui, sans-serif;
   }
-  
+  .post-cardings
+  {}
   .open-course-modal:hover {
     background-color: #dcdbdb;
   }
-  
- 
+

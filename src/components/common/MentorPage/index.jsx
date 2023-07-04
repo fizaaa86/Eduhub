@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { courseStatus, videotatus,getMentorPosts } from '../../../api/FirestoreAPI';
 import ModalComponent from '../Modal';
+import {BsBookmark} from "react-icons/bs";
 import Modal2 from '../Modal2';
+import user from '../../../assets/user.png';
 import Modal1 from '../Modal1';
 import { getUniqueId } from '../../../helpers/getUniqueId';
 import { uploadPostImage,uploadPostVideo } from '../../../api/ImageUpload';
@@ -66,7 +68,7 @@ const [postID,setPostID] = useState('');
     setModal2Open(false);
     setStatus('');
   };
-
+  const imageSrc = currentUser.imageLink ? currentUser.imageLink : user;
   console.log(getCurrentTimeStamp('LLL'));
    
   useMemo(() =>{
@@ -77,8 +79,17 @@ const [postID,setPostID] = useState('');
     <>
       <div className='Mentor-status-main'>
         <div className='Mentor-status'>
+       
+        <img className='users-img' src={imageSrc} alt="user" />
+        <p className='welcomings'>Welcome,</p>
+        <p className='mine'> Mentor {currentUser.name}</p>
+        <BsBookmark  className='bsbook'/>
+        <p className='yourcourse'>Your Courses</p>
           <button className='open-course-modal' onClick={() => setModalOpen(true)}>
-            Create a new course
+          <div className='booking'>
+           <BsBookmark className='bookmark' />
+           <p className='add-course'> Add New</p>
+           </div>
           </button>
         </div>
       </div>
@@ -134,7 +145,9 @@ const [postID,setPostID] = useState('');
       <div className='Mentor-cards'>
         {allStatuses.map((posts) => (
           <div key={posts.id}>
+            <div className='mentor-posts'>
             <CourseCard posts={posts} id={posts.id} />
+            </div>
           </div>
         ))}
       </div>

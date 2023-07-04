@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import '../Sass/LoginComponent.scss';
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
-
+import img from "../assets/online-02.jpg";
 
 export default function LoginComponent() {
     let navigate = useNavigate();
@@ -30,8 +30,13 @@ export default function LoginComponent() {
     return (
         <div className="login-wrapper">
      
+
+<img className="login-image" src={img} alt="iphone-mockup" />
+<div className="navbar-title">
 <Navbar />
+</div>
       <div className="login-wrapper-inner">
+        
         <h1 className="heading">Login</h1>
         <p className="sub-heading">Keep Exploring!</p>
 

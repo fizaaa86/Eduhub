@@ -3,35 +3,41 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    padding: 0 30px;
-    background-color: #fff;
-    width: 95%;
-    height: 80px;
-    position: fixed;
-    top:20px;
-    left: 50%;
-    transform: translate(-50%);
+  
+  
+ 
+  padding-left: 40px;
+
+   z-index: 0;
+    color: #ffffff;
+
 }
 
 /*logo*/
 .title{
     font-size: 40px;
+    font-weight: 800;
+margin-top: 8px;
+   
 }
 
 .logonav
 {
     display: flex;
     height: 5rem;
-    font-weight: bold;
+    font-weight: 900;
     font-size: 40px;
     gap: 1rem;
     align-items: center;
     justify-content: center;
     height: 4%;
-    color: black;
-    font-family: 'Poppins','sans-serif';
+   margin-top: 0px;
+    font-family: 'Montserrat','sans-serif';
 }
-
+.H
+{
+    color:black ;
+}
 
 .logo-img
 {
@@ -52,6 +58,11 @@
     align-items: center;
     text-align: center;
     justify-content: end;
+ margin-left: 790px;
+ margin-top: -60px;
+ 
+
+ 
 }
 
 
@@ -61,29 +72,26 @@
 
 .nav-links{
     text-decoration: none;
-    color: black;
+    color: rgb(250, 247, 247);
     padding: 0.7rem 1rem;
     white-space: nowrap;
     position: relative;
-}
-.nav-links:hover{
-    color: blue;
+    font-family: 'Montserrat','sans-serif';
+    font-weight: 500;
 }
 
-.nav-links::after{
-    content: '';
-    height: 4px;
-    width: 100%;
-    background: black;
-    position: absolute;
-    left:0;
-    bottom: -8px;
-    opacity: 0;
-    transition: all 0.2s;
-    pointer-events: none;
-}
+
+
+
+
+.nav-links:hover {
+    color: rgba(212, 212, 212, 0.6); /* Change to the desired color */
+    transition: 0.5s;
+  }
+  
 
 .nav-links:hover::after,
-.nav-links:focus::after{
-    opacity: 1;
+.nav-links:focus::after {
+  opacity: 1;
+    
 }

@@ -21,12 +21,20 @@ export default function OwnedCard({ posts, id }) {
   return (
     <div className='main'>
     
-    <div className='posts-card' key={id}>
+    <div className='own-card' key={id}  onClick={() => navigate('/myCourse', {
+          state: { id: posts?.postID, email: posts.userEmail },})}>
+       
+     <img
+        className='course-photo'
+        src={posts.postImage}
+        alt='post-image'
+       
+        />
      
-      <p className="Course-Name">{posts.CourseName}</p>
-      <p className='status'>{posts.status}</p>
+      <p className="own-Course-Name">{posts.CourseName}</p>
+     
       <p
-        className='name'
+        className='owner'
         onClick={() =>
           navigate('/profile', {
             state: { id: posts?.userID, email: posts.userEmail },
@@ -35,22 +43,10 @@ export default function OwnedCard({ posts, id }) {
       >
         {posts.userName}
       </p>
-      <p className='timestamp'>{posts.timeStamp}</p>
      
-     <img
-        className='post-photo'
-        src={posts.postImage}
-        alt='post-image'
-        onClick={() => navigate('/myCourse', {
-          state: { id: posts?.postID, email: posts.userEmail },})}
-        />
+    
       <div className='bottom'>
-      <p className='Course-Price'> &#8377; {posts.Price}</p>
-      <p className='Like-btn'></p>
-   
-
-
-      <LikeButton userID={currentUser?.id} postId={posts.id} />
+      
       </div>
       
 

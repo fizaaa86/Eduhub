@@ -10,6 +10,7 @@ export default function Owned() {
   return (
     <div className='Owned'>
         <p className='my-title'>My courses</p>
+        <div className='mycourse'>
       {owned.map((myposts) => {
               return (
                 <div key={myposts.id}>
@@ -21,7 +22,7 @@ export default function Owned() {
                 
               );
             })}
-  
+  </div>
     </div>
   )
 }

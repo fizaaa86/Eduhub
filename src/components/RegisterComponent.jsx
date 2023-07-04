@@ -6,6 +6,7 @@ import '../Sass/LoginComponent.scss';
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
 import { postUserData } from "../api/FirestoreAPI";
+import img from "../assets/online-02.jpg";
 import Navbar from "../components/common/Navbar/Navbar"
 export default function RegisterComponent() {
     let navigate = useNavigate();
@@ -28,7 +29,10 @@ export default function RegisterComponent() {
     }
     return (
         <div className="login-wrapper">
-      <Navbar />
+    <img className="login-image" src={img} alt="iphone-mockup" />
+<div className="navbar-title">
+<Navbar />
+</div>
 
       <div className="login-wrapper-inner">
         <h1 className="heading">Register</h1>

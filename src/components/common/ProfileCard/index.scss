@@ -1,55 +1,121 @@
-.profile-card{
-    width: 800px;
-    height: 550px;
-    background-color: whitesmoke;
+.profile-carding {
+    width: 900px;
+    height: auto;
+    background-color: rgba(255,255,255,0.5);
+    border:1px solid rgba(0, 184, 248, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-left: 350px;
     margin-top: 100px;
     border-radius: 5px;
     padding: 20px;
-
-   
-    margin-left: 400px;
-    padding: 30px;
-
-
-    .profile-info{
-        display: flex;
-    }
-    .user-name{
-        font-family: 'Poppins',sans-serif;
-        color: rgba(0,0,0,0.9);
-        font-weight: 600;
-        font-size: 24px;
-    }
-    .user-email{
-        margin-top: -20px;
-        font-family: 'system-ui';
-        color: rgba(0,0,0,0.6);
-        font-size: 14px;
-    }
-
-    .Fullname{
-        font-size: 18px;
-        margin-top: -25px;
-        color: rgba(0,0,0,0.9);
-    }
-
-    .Yos{
-        color: rgba(0,0,0,0.9);
-        font-size: 14px;
-        margin-top: -10px;
-    }
-
-    .Branch{
-        color: rgba(0,0,0,0.9);
-        font-size: 14px;
-        margin-top: -10px;
-    }
-    .edit-btn{
-        position: absolute;
-        right: 20px;
-        button{
-            background-color: white;
-            cursor: pointer;
+    position: relative;
+    .profile-info {
+      display: flex;
+      justify-content: space-between;
+      .profile-image {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        border-radius: 50%;
+        border: 2px solid rgba(0, 184, 248, 0.5);
+        padding: 5px;
+        cursor: pointer;
+      }
+      .right-info {
+        margin-top: 220px;
+        margin-right: 90px;
+        
+        
+        .college,
+        .company {
+          font-family: system-ui;
+          color: rgba(0, 0, 0, 0.9);
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 30px;
         }
+  
+        .company {
+          margin-top: -15px;
+        }
+      }
     }
-}
+  
+    .website {
+      color: #004c75 !important;
+      -webkit-link: #004c75;
+    }
+    .skill-label {
+      font-weight: 600;
+    }
+    .edit-btn {
+      position: absolute;
+      right: 20px;
+  
+      .edit-icon {
+        cursor: pointer;
+        padding: 10px;
+        color: rgb(0, 184, 248,);
+      }
+  
+      .edit-icon:hover {
+        background-color: rgb(197, 197, 197);
+        padding: 10px;
+        border-radius: 50%;
+      }
+    }
+    .userName {
+      font-family: Montserrat;
+      color: rgba(0, 0, 0, 0.9);
+      font-weight: 900;
+      font-size: 24px;
+      margin-top: 10px;
+      margin-left: 25px;
+    }
+  
+    .headings {
+      margin-top: -10px;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.9);
+      width: 320px;
+      
+      line-height: 20px;
+    }
+    .mini-heading
+    {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 21px;
+    }
+    .year
+    {
+        margin-top: -12px;
+        font-family: Montserrat;
+    }
+   
+    .College{
+        font-family: Montserrat;
+        font-weight: 500;
+        margin-left: 21px;
+        margin-top: -9px;
+    }
+    .open-profile-modal
+    {
+      background-color:rgba(0, 184, 248, 0.7);
+      width: 120px;
+      cursor: pointer;
+      height: 40px;
+      border: none;
+      font-family: montserrat;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 7px;
+      color: white;
+    }
+    .open-profile-modal:hover{
+      background-color:rgba(0, 184, 248, 0.9);
+    }
+  }
+  

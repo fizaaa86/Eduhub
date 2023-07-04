@@ -84,6 +84,23 @@ export const getAllUsers = (setAllUsers) => {
     );
   });
 };
+export const getLikesByUser = (userId, postId, setLiked, setLikesCount) => {
+  try {
+    let likeQuery = query(likeRef, where("postId", "==", postId));
+
+    onSnapshot(likeQuery, (response) => {
+      let likes = response.docs.map((doc) => doc.data());
+      let likesCount = likes?.length;
+
+      const isLiked = likes.some((like) => like.userId === userId);
+
+      setLikesCount(likesCount);
+      setLiked(isLiked);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const getSingleStatus = (setPosts, id) => {
   const singlePostQuery = query(postsRef, where("postID", "==", id));
@@ -153,10 +170,10 @@ export const editProfile = (userID, payload) => {
     });
 };
 
-export const likePost = (userId, postId, liked) => {
+export const likePost = (userId, postId, isLiked) => {
   try {
-    let docToLike = doc(likeRef, `${userId}_${postId}`);
-    if (liked) {
+    let docToLike = doc(likeRef, `${postId}`);
+    if (isLiked) {
       deleteDoc(docToLike);
     } else {
       setDoc(docToLike, { userId, postId });

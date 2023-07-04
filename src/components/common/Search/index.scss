@@ -1,0 +1,49 @@
+.content-search
+{
+ background: transparent;
+border: none;
+ outline: none;
+ width: 350px;
+ 
+
+}
+.mysearch
+{
+  margin-top: 5px;
+  color: rgb(128, 127, 127,0.9);
+}
+
+.search-box
+{
+ margin-top: -60px;
+
+ width: 400px;
+ padding: 2px;
+ height: 30px;
+ border-radius: 7px;
+ background-color:  rgba(76, 152, 178, 0.1);
+}
+.search-inner
+{
+  display: flex;
+ gap:10px;
+ align-items: center;
+ padding:10px;
+ border-radius: 10px;
+ cursor: pointer;
+  img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .naming
+  {
+    font-family: Montserrat;
+    font-size: 18px;
+  }
+}
+.search-inner:hover
+{
+  background-color:  rgba(76, 152, 178, 0.1);
+}

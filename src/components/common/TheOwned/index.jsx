@@ -1,56 +1,59 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
-import { useLocation } from 'react-router-dom';
-import { getSingleStatus, createFirestoreCollection } from '../../../api/FirestoreAPI'; // Assuming you have a function for creating a Firestore collection
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getSingleStatus, createFirestoreCollection } from '../../../api/FirestoreAPI';
 import { storage } from "../../../firebaseConfig";
+import { AiOutlineComment } from 'react-icons/ai';
 import PaymentPage from '../PaymentPage';
 import {
-    ref,
-    uploadBytes,
-    getDownloadURL,
-    listAll,
-    list,
-  } from "firebase/storage";
+  ref,
+  getDownloadURL,
+  listAll,
+} from "firebase/storage";
 
 export default function TheOwned() {
   let location = useLocation();
   let navigate = useNavigate();
   const [posts, setPosts] = useState([]);
-  const [videoUrls, setvideoUrls] = useState([]);
-  const VideosListRef = ref(storage, "React/");
-  useMemo(() => {
+  const [videoUrls, setVideoUrls] = useState([]);
+
+  useEffect(() => {
     if (location?.state?.id) {
       getSingleStatus(setPosts, location?.state?.id);
     }
-  }, []);
-  useMemo(() => {
-    if (videoUrls.length === 0) { // Check if videoUrls array is empty before fetching URLs
-      listAll(VideosListRef).then((response) => {
-        response.items.forEach((item) => {
-          getDownloadURL(item).then((url) => {
-            setvideoUrls((prev) => [...prev, url]);
-          });
+  }, [location]);
+
+  useEffect(() => {
+    posts.forEach((posting) => {
+      const VideosListRef = ref(storage, `${posting.CourseName}/`);
+
+      listAll(VideosListRef)
+        .then((response) => {
+          const promises = response.items.map((item) => getDownloadURL(item));
+          return Promise.all(promises);
+        })
+        .then((urls) => {
+          setVideoUrls((prevUrls) => [...prevUrls, urls]);
+        })
+        .catch((error) => {
+          console.log("Error fetching video URLs:", error);
         });
-      });
-    }
-  }, []); // Add VideosListRef and videoUrls.length as dependencies
-  
-  
+    });
+  }, [posts]);
+
   const handleCreateCollection = (data) => {
-    createFirestoreCollection(data); // Call your Firestore function with the data object
+    createFirestoreCollection(data);
   };
 
   const handleBuyClick = (data) => {
-    handleCreateCollection(data); // Call the handleCreateCollection function when Buy button is clicked
-    navigate('/payment'); // Navigate to the payment page
+    handleCreateCollection(data);
+    navigate('/payment');
   };
 
   return (
     <div className='Course-detail'>
       <div className='Course-detail-header'>
-        {posts.map((posting) => {
-          // Create the data object
+        {posts.map((posting, index) => { // Add index parameter to map function
           const data = {
             CourseName: posting.CourseName,
             status: posting.status,
@@ -75,12 +78,11 @@ export default function TheOwned() {
                               state: { id: posting?.userID, email: posting.userEmail },
                             })
                           }
-                          
-                         
-                        >{posting.userName}</span>
+                        >
+                          {posting.userName}
+                        </span>
                       </p>
                       <p className='Course-date'>{posting.timeStamp}</p>
-                     
                     </div>
                     <p className='Course-Pricing'>&#8377;{posting.Price}</p>
                   </div>
@@ -88,34 +90,38 @@ export default function TheOwned() {
                 <img className='posting-photo' src={posting.postImage} alt='post-image' />
               </div>
 
-             
               <div className='App-desc'>
-              <p className='desc-heading'>Description</p>
-              <div className='desc-sub'>{posting.description}</div>
-                </div>
+                <p className='desc-heading'>Description</p>
+                <div className='desc-sub'>{posting.description}</div>
+              </div>
 
-                <div className='Video-header'>
-                          Videos
+              <div className='Video-header'>Videos</div>
+              <div className='Videos'>
+                <div className='VideoList'> {/* Create a container for video list and paragraph tags */}
+                  {videoUrls[index] && videoUrls[index].map((url, innerIndex) => (
+                    <div key={innerIndex} className='Videobox'>
+                        <p className='videotags'>Video {innerIndex + 1}</p> {/* Render paragraph tags next to each video */}
+                      <video controls className='videosource'>
+                        <source src={url} />
+                      </video>
+                    
                     </div>
-             <div className='Videos'>
-              
-             {videoUrls.map((url) => {
-       return( 
-        <div key={url.id}>
-            <video controls>
-            <source src={url}></source>
-       </video> 
-       </div>
-         ); })}
+                  ))}
                 </div>
+              </div>
             </div>
           );
         })}
       </div>
-      <div className='footer'>
-       
-         b
-        
+      <div className='course-footing'>
+        <div className='reviews'>
+          <div className='review-inner'>
+            <AiOutlineComment />
+            write your review
+          </div>
+          <input placeholder='Add a Review' className='comment-input'></input>
+          <button className='add review'>Add Review</button>
+        </div>
       </div>
     </div>
   );
