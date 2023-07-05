@@ -29,7 +29,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
       setCurrentImage
     );
   };
-
+console.log(currentProfile);
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatus, location?.state?.id);
@@ -50,13 +50,14 @@ export default function ProfileCard({ onEdit, currentUser }) {
         currentImage={currentImage}
         progress={progress}
       />
-
+  
       <ProfileModal
-      modal1Open={modal1Open}
-      setModal1Open={setModal1Open}
+        modal1Open={modal1Open}
+        setModal1Open={setModal1Open}
+        currentProfile={currentProfile}
       />
       <div className="profile-carding">
-        
+      
           <div className="edit-btn">
             <HiOutlinePencil className="edit-icon" onClick={onEdit} />
           </div>
@@ -79,37 +80,26 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 : currentProfile?.name}
             </h3>
             <div className="mini-heading">
-            <p className="year">
-              {currentUser.YOS} Year,
+              <p className="year">{currentUser.YOS} Year</p>
+              <p className="headings">
+                {Object.values(currentProfile).length === 0
+                  ? currentUser.Branch
+                  : currentProfile?.Branch}
               </p>
-            <p className="headings">
-              {Object.values(currentProfile).length === 0
-                ? currentUser.Branch
-                : currentProfile?.Branch}
-            </p>
-            
-       
             </div>
-             
-              <p className="College">
-                School of Engineering,Cusat
-              </p>
-           
+            <p className="College">School of Engineering, Cusat</p>
           </div>
-
+  
           <div className="right-info">
-            <button className="open-profile-modal"  onClick={() => setModal1Open(true)}>
+            <button
+              className="open-profile-modal"
+              onClick={() => setModal1Open(true)}
+            >
               Contact info
-
             </button>
-          
-
           </div>
         </div>
-       
       </div>
-
-    
     </>
   );
-}
+                }  

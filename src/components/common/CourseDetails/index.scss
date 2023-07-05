@@ -51,9 +51,18 @@ $Eduhub3: #004c75;
         display: flex;
         justify-content: space-between;
         background-color: rgba(0,0,0);
+        margin-top: -60px;
         box-shadow: rgba(0, 0, 0, 0.80) 0px 3px 8px;
         color: rgba(250,250,250);
         
+    }
+    .Course-Features
+    {
+        font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 900;
+    margin-left: 50px;
+    margin-top:50px;
     }
     .blue-underline
     {
@@ -92,30 +101,12 @@ $Eduhub3: #004c75;
     .footer{
         margin-top: 60px;
       
-        margin-left: 72%;
+        margin-left: 55%;
         display: flex;
         justify-content: space-around;
     }
-    .Cart
-    {
-        width: 200px;
-        height: 50px;
-        cursor: pointer;
-        background-color:rgb(0, 110, 255);
-        color: #ffffff;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-        font-family: Poppins;
-        font-weight: 600;
-        font-size: 19px;
-
-     
-    }
-    .Cart:hover{
-        background-color: $Eduhub3;
+   
     
-    }
 .Payment
 {
     width: 200px;
@@ -149,7 +140,13 @@ $Eduhub3: #004c75;
     flex-direction: column;
     gap:20px;
     margin-left: 50px;
-    margin-top: 100px;
+    margin-top: 20px;
+}
+.User-review-inner
+{
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .desc-sub
@@ -157,13 +154,14 @@ $Eduhub3: #004c75;
     
     font-family: Montserrat;
     font-size: 18px;
+    width: 97%;
     margin-top: 5px;
     line-height: 2;
 }
     .App-features
     {
-        margin-top: 200px;
-        margin-left: 350px;
+        margin-top: 50px;
+        margin-left: 300px;
         display: flex;
         justify-content: space-around;
         font-family: Montserrat;
@@ -209,7 +207,67 @@ $Eduhub3: #004c75;
     margin-top: 150px;
     text-decoration: underline;
    }
+.Userreviews
+{
+   
+    border-radius: 10px;
+    background-color: white;
+    height: auto;
+    margin-top: 4px;
+    width: 1230px;
+    margin-left: 70px;   
+}
 
+.review-pic
+{
+    width: 50px;
+    border-radius: 50%;
+    border:2px solid rgba(0, 184, 248, 0.5);
+}
+.user-review-user-detail
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+.user-review-username
+{
+    margin-left: -190px;
+    font-family: montserrat;
+    font-weight: 500;
+}
+.user-review-time
+{
+    margin-top: -20px;
+    font-size: 11px;
+    margin-left: 55px;
+}
+.User-review-section
+{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-top: 10px;
+    border:2px solid rgba(0, 184, 248, 0.5);
+    background-color: white;
+    height: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: auto;
+    border-radius: 15px;
+
+    margin-top: 20px;
+}
+.User-reviews
+{
+    margin-top: 80px;
+    
+}
+.User-give-review
+{
+    font-family: montserrat;
+    font-weight: 900;
+    font-size: 19px;
+    margin-top: 5px;
+    margin-left: -360px;
+}
 
 }
 

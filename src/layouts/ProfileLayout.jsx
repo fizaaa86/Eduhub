@@ -12,6 +12,7 @@ export default function DashboardLayout() {
     <div className='main'>
       <Topbar currentUser={currentUser} />
       <SideBar />
+      
       <Profile currentUser={currentUser} />
         
       

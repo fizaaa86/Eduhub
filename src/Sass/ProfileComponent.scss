@@ -1,0 +1,20 @@
+.profile-title
+{
+    margin-left: -240px;
+    margin-top: 45px;
+    font-family: montserrat;
+    font-weight: 900;
+    font-size: 25px;
+}
+.usering
+{
+    margin-left: 250px;
+    margin-top: 40px;
+    width:40px;
+    height: 40px;
+}
+.profile-inner
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}

@@ -19,7 +19,7 @@ let postsRef = collection(firestore, "Courses");
 let videoRef = collection(firestore,"Videos");
 let userRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
-let commentsRef = collection(firestore, "comments");
+let commentsRef = collection(firestore, "Reviews");
 let connectionRef = collection(firestore, "connections");
 
 export const courseStatus = (object) => {
@@ -212,5 +212,38 @@ export const createFirestoreCollection = async (data) => {
     }
   } catch (error) {
     console.error('Error creating collection:', error);
+  }
+};
+
+export const postComment = (postId,comment,timeStamp,name,imageLink) => {
+  try{
+      addDoc(commentsRef,{
+        postId,
+        comment,
+        timeStamp,
+        name,
+        imageLink,
+      })
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+export const getComments = (postId,setComment) => {
+  try {
+    let singlePostQuery = query(commentsRef, where("postId", "==", postId));
+
+    onSnapshot(singlePostQuery, (response) => {
+      const comments = response.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+
+      setComment(comments);
+    });
+  } catch (err) {
+    console.log(err);
   }
 };

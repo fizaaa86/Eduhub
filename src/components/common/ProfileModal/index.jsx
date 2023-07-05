@@ -5,7 +5,7 @@ import {AiFillGithub,AiFillLinkedin} from "react-icons/ai"
 import {FaEnvelope} from "react-icons/fa"
 import { getCurrentUser } from '../../../api/FirestoreAPI';
 import Phone from "../../../assets/phone.png"
-const ProfileModal = ({ modal1Open, setModal1Open }) => {
+const ProfileModal = ({ modal1Open, setModal1Open,currentProfile }) => {
     const [currentUser, setCurrentUser] = useState({})
     useMemo(() => {
         getCurrentUser(setCurrentUser);
@@ -37,8 +37,8 @@ const ProfileModal = ({ modal1Open, setModal1Open }) => {
         <p className='github-head'>Your Github</p>
         </div>
      <a className="git-link"
-            href={currentUser.GitHub}>
-             {currentUser.GitHub}
+            href={currentProfile.GitHub}>
+             {currentProfile.GitHub}
     </a>
 
     </div>
@@ -48,8 +48,8 @@ const ProfileModal = ({ modal1Open, setModal1Open }) => {
         <p className='mail-head'>Your Email</p>
         </div>
      <a className="git-link"
-            href={currentUser.email}>
-            {currentUser.email}
+            href={currentProfile.email}>
+            {currentProfile.email}
     </a>
     
     </div>
@@ -59,15 +59,15 @@ const ProfileModal = ({ modal1Open, setModal1Open }) => {
         <p className='link-head'>Your LinkedIn</p>
         </div>
      <a className="git-link"
-            href={currentUser.LinkedIn}>
-            {currentUser.LinkedIn}
+            href={currentProfile.LinkedIn}>
+            {currentProfile.LinkedIn}
     </a>
     
     </div>
         <div className="phone-number">
               <img className="phone" src={Phone} />
              <p className="no-head">Your Phone Number</p> 
-             <p className='number'>{currentUser.phone}</p>
+             <p className='number'>{currentProfile.phone}</p>
               </div>
        
       </Modal>
