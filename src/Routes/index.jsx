@@ -10,6 +10,7 @@ import PaymentPage from "../components/common/PaymentPage";
 import MentorLayout from "../layouts/MentorLayout";
 import TheOwned from "../components/common/TheOwned";
 import Cusat from "../Pages/Cusat";
+import Chat from "../components/ChatComponent"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -67,7 +68,10 @@ export const router = createBrowserRouter([
     {
       path: "/Cusat",
       element: <Cusat />
+    },
+    {
+      path: "/Chat",
+      element: <Chat />
     }
-
 
   ]);

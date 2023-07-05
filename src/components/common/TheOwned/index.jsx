@@ -129,7 +129,9 @@ console.log(currentUser?.name)
                     ))}
                 </div>
               </div>
+<div className='Materials'>
 
+  </div>
               <div className="course-footing">
                 <div className="review-inner" onClick={() => setShowCommentBox(true)}>
                   <AiOutlineComment className="Comment-icon" />
