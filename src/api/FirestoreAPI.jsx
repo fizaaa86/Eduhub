@@ -65,6 +65,11 @@ export const getVideos = (setOwned) => {
   });
 };
 
+export const getChatRoom = (name,setCurrentCourse) =>
+{
+  setCurrentCourse(name);
+}
+
 export const getPrice = (setPrices,id) => {
   const singlePriceQuery = query(postsRef, where("postID", "==", id));
   onSnapshot(singlePriceQuery, (response) => {

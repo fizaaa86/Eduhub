@@ -19,7 +19,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
   };
-  console.log(currentUser);
+  console.log(localStorage.getItem("userEmail"));
   const uploadImage = () => {
     uploadImageAPI(
       currentImage,

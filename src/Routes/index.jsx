@@ -10,7 +10,7 @@ import PaymentPage from "../components/common/PaymentPage";
 import MentorLayout from "../layouts/MentorLayout";
 import TheOwned from "../components/common/TheOwned";
 import Cusat from "../Pages/Cusat";
-import Chat from "../components/ChatComponent"
+import Chat from "../Pages/Chat"
 export const router = createBrowserRouter([
   {
     path: "/",

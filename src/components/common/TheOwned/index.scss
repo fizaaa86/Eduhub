@@ -79,7 +79,36 @@
     font-family: montserrat;
     font-weight: 900;
   }
-
+  .chat-button
+  {
+    background-color: #34d399;
+    font-family: montserrat;
+    margin-top: 50px;
+    width: auto;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .chat-button:hover
+  {
+    background-color: #07734c;
+  }
+  .Videosection
+  {
+    border: 3px solid black;
+    margin: 10px;
+    border-radius: 15px;
+  }
+.plane
+{
+  padding-left: 5px;
+  font-size: 18px;
+}
   .videosource
   {
     padding-top: 30px;
@@ -113,8 +142,9 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     margin-left: 50px;
-    margin-top: 100px;
+    margin-top: 50px;
     font-family: Montserrat;
+    text-decoration: underline;
     font-weight: 900;
     font-size: 25px;
     cursor: pointer;

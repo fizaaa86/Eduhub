@@ -1,17 +1,13 @@
-.NavbarItems{
+.NavbarItems {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-  
-  
- 
-  padding-left: 40px;
-
-   z-index: 0;
+    padding-left: 40px;
+    z-index: 0;
     color: #ffffff;
-
-}
+  }
+  
 
 /*logo*/
 .title{
@@ -21,8 +17,7 @@ margin-top: 8px;
    
 }
 
-.logonav
-{
+.logonav {
     display: flex;
     height: 5rem;
     font-weight: 900;
@@ -31,9 +26,11 @@ margin-top: 8px;
     align-items: center;
     justify-content: center;
     height: 4%;
-   margin-top: 0px;
-    font-family: 'Montserrat','sans-serif';
-}
+    margin-top: 0px;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1; /* Add this line */
+  }
+  
 .H
 {
     color:black ;
@@ -59,8 +56,8 @@ margin-top: 8px;
     text-align: center;
     justify-content: end;
  margin-left: 790px;
- margin-top: -60px;
- 
+
+ margin-top: -5px;
 
  
 }

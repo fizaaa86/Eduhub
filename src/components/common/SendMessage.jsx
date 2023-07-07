@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { auth, firestore } from "../../firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { getCurrentUser } from "../../api/FirestoreAPI";
+import { FaPaperPlane } from 'react-icons/fa';
 
-const style = {
-  form: `h-14 w-full max-w-[728px]  flex text-xl absolute bottom-0`,
-  input: `w-full text-xl p-3 bg-gray-900 text-white outline-none border-none`,
-  button: `w-[20%] bg-green-500`,
+const styles = {
+  form: "form",
+  input: "input",
+  button: "button",
 };
 
-const SendMessage = ({ scroll }) => {
+const SendMessage = ({ scroll, currentCourse }) => {
   const [input, setInput] = useState("");
 
   const sendMessage = async (e) => {
@@ -17,8 +19,9 @@ const SendMessage = ({ scroll }) => {
       alert("Please enter a valid message");
       return;
     }
+
     const { uid, displayName } = auth.currentUser;
-    await addDoc(collection(firestore, "messages"), {
+    await addDoc(collection(firestore, `${currentCourse}Room`), { // Add "Room" suffix to currentCourse
       text: input,
       name: displayName,
       uid,
@@ -29,18 +32,20 @@ const SendMessage = ({ scroll }) => {
   };
 
   return (
-    <form onSubmit={sendMessage} className={style.form}>
+    <div className="SendMessage">
+    <form onSubmit={sendMessage} className={styles.form}>
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className={style.input}
+        className={styles.input}
         type="text"
         placeholder="Message"
       />
-      <button className={style.button} type="submit">
-        Send
+      <button className={styles.button} type="submit">
+        <FaPaperPlane />
       </button>
     </form>
+    </div>
   );
 };
 

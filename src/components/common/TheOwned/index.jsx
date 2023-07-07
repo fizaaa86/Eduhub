@@ -1,13 +1,15 @@
-import React, { useEffect, useState ,useMemo} from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import './index.scss';
 import { getCurrentTimeStamp } from '../../../helpers/useMoment';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getSingleStatus, createFirestoreCollection, postComment } from '../../../api/FirestoreAPI';
+import { getSingleStatus, createFirestoreCollection, postComment,getChatRoom } from '../../../api/FirestoreAPI';
 import { storage } from '../../../firebaseConfig';
 import { getCurrentUser } from '../../../api/FirestoreAPI';
 import { AiOutlineComment } from 'react-icons/ai';
 import PaymentPage from '../PaymentPage';
 import { ref, getDownloadURL, listAll } from 'firebase/storage';
+import ChatComponent from "../../ChatComponent";
+import { FaPaperPlane } from 'react-icons/fa';
 
 export default function TheOwned() {
   let location = useLocation();
@@ -16,23 +18,23 @@ export default function TheOwned() {
   const [videoUrls, setVideoUrls] = useState([]);
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [comment, setComment] = useState('');
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({});
+  const [showChat, setShowChat] = useState(false);
+  
   useMemo(() => {
-      getCurrentUser(setCurrentUser);
-  },[])
+    getCurrentUser(setCurrentUser);
+  }, []);
+
   const getComment = (event) => {
     setComment(event.target.value);
   };
-console.log(currentUser?.name)
-  const addComment = (id) => {
-    postComment(id, comment, getCurrentTimeStamp('LLL'),currentUser?.name,currentUser?.imageLink)
-      
-        setComment('');
-      
-      
-  };
-  
 
+  const addComment = (id) => {
+    postComment(id, comment, getCurrentTimeStamp('LLL'), currentUser?.name, currentUser?.imageLink);
+    setComment('');
+  };
+
+  
   useEffect(() => {
     if (location?.state?.id) {
       getSingleStatus(setPosts, location?.state?.id);
@@ -42,7 +44,7 @@ console.log(currentUser?.name)
   useEffect(() => {
     posts.forEach((posting, index) => {
       const VideosListRef = ref(storage, `${posting.CourseName}/`);
-
+  
       listAll(VideosListRef)
         .then((response) => {
           const promises = response.items.map((item) => getDownloadURL(item));
@@ -59,8 +61,10 @@ console.log(currentUser?.name)
           console.log('Error fetching video URLs:', error);
         });
     });
+  
+    // Set the value of currentCourse to the CourseName of the first post
   }, [posts]);
-
+  
   const handleCreateCollection = (data) => {
     createFirestoreCollection(data);
   };
@@ -69,6 +73,7 @@ console.log(currentUser?.name)
     handleCreateCollection(data);
     navigate('/payment');
   };
+
 
   return (
     <div className="Course-detail">
@@ -104,7 +109,6 @@ console.log(currentUser?.name)
                       </p>
                       <p className="Course-date">{posting.timeStamp}</p>
                     </div>
-                   
                   </div>
                 </div>
                 <img className="posting-photo" src={posting.postImage} alt="post-image" />
@@ -114,7 +118,9 @@ console.log(currentUser?.name)
                 <p className="desc-heading">Description</p>
                 <div className="desc-sub">{posting.description}</div>
               </div>
-
+             
+             
+              <div className='Videosection'>
               <div className="Video-header">Videos</div>
               <div className="Videos">
                 <div className="VideoList">
@@ -129,9 +135,23 @@ console.log(currentUser?.name)
                     ))}
                 </div>
               </div>
-<div className='Materials'>
+              </div>
+              <div className="Chats">
+              <button
+                  className="chat-button"
+                  onClick={() => navigate('/Chat', { state: { currentCourse: posting.CourseName } })}
+                >
+                  Discuss 
+                  <FaPaperPlane className='plane' />
+                </button>
 
+                {showChat && (
+  <div className="chat-container">
+    
   </div>
+)}
+
+              </div>
               <div className="course-footing">
                 <div className="review-inner" onClick={() => setShowCommentBox(true)}>
                   <AiOutlineComment className="Comment-icon" />
@@ -147,9 +167,8 @@ console.log(currentUser?.name)
                       value={comment}
                     ></input>
                     <button className="add review" onClick={() => addComment(posting.postID)}>
-  Add Review
-</button>
-
+                      Add Review
+                    </button>
                   </div>
                 )}
               </div>

@@ -1,157 +1,151 @@
-.navbar {
-    
-    margin-top: -790px;
-    margin-bottom: 80px;
-    margin-left: 830px;
-  }
-  #features
-  {
-    margin-top: 820px;
-   
-  text-align: center;
-    height: 50px;
-    border-radius: 5px;
-    padding:10px
-  }
 
-  .social-icon
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+#features {
+  margin-top: 180px; 
+/* Adjust the margin-top value to position it after the title image */
+  text-align: center;
+  height: 50px;
+margin-left: 0px;
+width: auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+.newsection
 {
+  background-color: black;
+}
+.social-icon {
   margin: 20px 10px;
   font-size: 20px;
 }
 
-.copyright
-{
-  font-family: montserrat;
-}
-  #footer
-  {
-  
-  text-align:center;
+
+#footer {
+  text-align: center;
   background-color: rgb(255, 255, 255);
-margin-top: 15px;
+  margin-top: 15px;
   height: 85px;
  
-  }
+}
 
-#classes
-{
+#classes {
   margin-top: 50px;
 }
-  #colom
-  { background-color: black;
-    box-shadow: rgba(0, 0, 0, 0.80) 0px 3px 8px;
-    width: 1540px;
-    margin-top: -244px;
-    margin-left: -10px;
-    height: 215px;
-  
-    
-  }
-  
-  .container-fluid {
-    padding: 2% 25% 5% 10%;
- 
-   background-image: url("girl.jpg");
 
-    background-color: rgba(106, 159, 176, 0.5);
-    z-index: 1;
-    color: rgb(19, 19, 19);
-    height: 600px;
-  }
-  .fa-sharp.fa-solid.fa-book {
-    /* Add your custom styles here */
-    color: #39B5E0; /* Change icon color to red */
-    font-size: 44px; /* Change icon size to 24 pixels */
-    /* Add more custom styles as needed */
-    padding-left: 5px;
-    margin-left: -1000px;
-    margin-top: 70px;
-  }
-  .fa-solid.fa-film.fa-bounce
-  {
-      /* Add your custom styles here */
-    color: #39B5E0; /* Change icon color to red */
-    font-size: 44px; /* Change icon size to 24 pixels */
-    /* Add more custom styles as needed */
-    padding-left: 5px;
-    margin-left: 5px;
-    margin-top:20px;
-  }
-  .fa-solid.fa-circle-check.fa-bounce
-  {
-    color: #39B5E0; /* Change icon color to red */
-    font-size: 44px; /* Change icon size to 24 pixels */
-    /* Add more custom styles as needed */
-    padding-left: 5px;
-    margin-top: 0px;
-    margin-left: 1000px;
+#colom {
+  background-color: black;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 3px 8px;
+  width: 100%; /* Set the width to 100% */
+  margin-top: 0; /* Adjust the margin-top value as needed */
+  /* Remove the margin-left */
+  height: 215px;
+}
 
-  }
-  
-  .mini
-  {
-    font-weight: 900;
-    padding: 20px;
-    font-family: Montserrat;
-    margin-top: 8px;
-    font-size: 28px;
-    margin-left: -1000px;
-    color: white;
-  }
-  
-  .heading {
-    font-family: "Poppins";
-    font-weight: 900px;
-    font-size: 50px;
-    margin-left: 50px;
+ .copyright {
+  margin-top: 50px; /* Adjust the margin-top value as needed */
+  margin-left: -165px;
 
-  }
-  .mini2
-  {
-    font-weight: 900;
-    padding: 20px;
-    font-family: Montserrat;
-    margin-top: 5px;
-    font-size: 28px;
-    margin-left: 1000px;
-    color: white;
-  }
-  .mini1
-  {
-    font-weight: 900;
-    padding: 20px;
-    font-family: Montserrat;
-    margin-top: 5px;
-    margin-left: 25px;
-    font-size: 28px;
-    color: white;
-  }
-  
-  .nav-item {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 90%;
-    margin-right: 80px;
-  }
-  
-  .nav-link {
-    padding: 10px !important;
-    font-size: 150%;
-  }
-  
-  .big-heading {
-    font-family: "Montserrat", sans-serif;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    font-weight: 900;
-    line-height: 100px;
-    margin-left: 60px;
-    margin-top: 500px;
-  }
+}
 
- .para
- {
+.container-fluid {
+  padding: 2% 10%;
+  background-image: url("girl.jpg");
+  background-color: rgba(106, 159, 176, 0.5);
+  z-index: 1;
+  color: rgb(19, 19, 19);
+  min-height: 600px; /* Update to min-height to prevent content overlap */
+}
+
+.fa-sharp.fa-solid.fa-book {
+  color: #39B5E0;
+  font-size: 44px;
+  padding-left: 5px;
+  margin-left: -1000px;
+  margin-top: 70px;
+}
+
+.fa-solid.fa-film.fa-bounce {
+  color: #39B5E0;
+  font-size: 44px;
+  padding-left: 5px;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+.fa-solid.fa-circle-check.fa-bounce {
+  color: #39B5E0;
+  font-size: 44px;
+  padding-left: 5px;
+  margin-top: 0px;
+  margin-left: 1000px;
+}
+
+.mini {
+  font-weight: 900;
+  padding: 20px;
+  font-family: Montserrat;
+  margin-top: 8px;
+  font-size: 28px;
+  margin-left: -1000px;
+  color: white;
+}
+
+.heading {
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.mini2 {
+  font-weight: 900;
+  padding: 20px;
+  font-family: Montserrat;
+  margin-top: 5px;
+  font-size: 28px;
+  margin-left: 1000px;
+  color: white;
+}
+
+.mini1 {
+  font-weight: 900;
+  padding: 20px;
+  font-family: Montserrat;
+  margin-top: 5px;
+  margin-left: 25px;
+  font-size: 28px;
+  color: white;
+}
+
+.nav-item {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 90%;
+  margin-right: 80px;
+}
+
+.nav-link {
+  padding: 10px !important;
+  font-size: 150%;
+}
+
+.big-heading {
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  font-weight: 900;
+  line-height: 100px;
+  margin-left: 60px;
+  margin-top: 500px;
+}
+
+.para {
   margin-top: 100px;
   margin-left: 100px;
   font-family: "Montserrat", sans-serif;
@@ -160,61 +154,96 @@ margin-top: 15px;
   font-size: 55px;
   font-weight: 900;
   color: rgb(11, 11, 11);
- }
+}
 
- .big-title
- {
+.big-title {
   font-weight: 900;
   line-height: 1.5;
- }
- 
-  .subtitle
-  {
-    margin-left: -800px;
-    font-family: "Montserrat", sans-serif;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    font-weight: 900;
-   
-   margin-top: -90px;
+}
 
- 
-  }
-  
-  .title-image {
-    width: 1540px;
- height: 850px;
-margin-right: -90px;
+.subtitle {
+  margin-left: -800px;
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  font-weight: 900;
+  margin-top: -90px;
+}
+
+.title-image {
+  width: 100%;
+  height: 850px;
+  margin-right: -90px;
+  margin-top: -230px;
+}
+.title-wrapper {
+  position: relative;
+}
+#mini {}
+
+.short-title {
+  font-family: Montserrat;
+  color: rgb(168, 168, 168);
+  margin-left: 40px;
   margin-top: -30px;
-  
+  width: 30%;
 
+}
+
+.short-title1 {
+  font-family: Montserrat;
+  color: rgb(168, 168, 168);
+  margin-top: -30px;
+  margin-left: 570px;
+  width: 30%;
+}
+
+.short-title2 {
+  font-family: Montserrat;
+  color: rgb(168, 168, 168);
+  margin-top: -30px;
+  margin-left: 1000px;
+}
+
+/* Additional Changes */
+
+/* Adjust the margin-top for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    margin-top: -400px;
   }
-#mini
-{
+  #features {
+    margin-top: 500px;
+  }
 }
-.short-title
-{
-    font-family: montserrat;
-    color: rgb(168, 168, 168);
-margin-left: 40px;
-margin-top: -30px;
-width: 30%;
-}
-.short-title1
-{
-  font-family: montserrat;
-  color: rgb(168, 168, 168);
-margin-top: -30px;
-margin-left: 570px;
-width: 30%;
 
+/* Center align the social icons in the footer */
+#footer {
+  display: flex;
+  justify-content: center;
 }
-.short-title2
-{
-  font-family: montserrat;
-  color: rgb(168, 168, 168);
-margin-top: -30px;
-margin-left: 1000px;
 
+.social-icon {
+  margin: 20px;
+}
+
+/* Update the margin-left for the classes */
+.class-1,
+.class-2,
+.class-3 {
+  margin-left: 0;
+}
+
+/* Adjust the width and margin-left for the colom */
+#colom {
+  width: 100%;
+  margin-top: -244px;
+  margin-left: 0;
+}
+
+/* Update the height of the container-fluid */
+.container-fluid {
+  height: auto;
+  min-height: 600px;
 }
