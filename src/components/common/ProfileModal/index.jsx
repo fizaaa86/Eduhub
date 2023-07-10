@@ -3,13 +3,19 @@ import { useState,useMemo} from 'react';
 import "./index.scss";
 import {AiFillGithub,AiFillLinkedin} from "react-icons/ai"
 import {FaEnvelope} from "react-icons/fa"
-import { getCurrentUser } from '../../../api/FirestoreAPI';
+import { getCurrentUser,getSingleUser} from '../../../api/FirestoreAPI';
 import Phone from "../../../assets/phone.png"
-const ProfileModal = ({ modal1Open, setModal1Open,currentProfile }) => {
+const ProfileModal = ({ modal1Open, setModal1Open }) => {
     const [currentUser, setCurrentUser] = useState({})
+    const [currentProfile, setCurrentProfile] = useState({});
     useMemo(() => {
         getCurrentUser(setCurrentUser);
+        if (location?.state?.email) {
+          getSingleUser(setCurrentProfile, location?.state?.email);
+        }
+     
     },[])
+    console.log(location?.state?.email)
   const onOk = () => {
     setModal1Open(false);
   };
@@ -17,13 +23,14 @@ const ProfileModal = ({ modal1Open, setModal1Open,currentProfile }) => {
   const handleClose = () => {
     setModal1Open(false);
   };
+  
 
   return (
     <>
       <Modal
         title="Contact info"
         centered
-        visible={modal1Open}
+        open={modal1Open}
         onCancel={handleClose}
         footer={[
           <Button key="submit" type="primary" onClick={onOk}>

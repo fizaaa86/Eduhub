@@ -6,10 +6,11 @@ import Modal2 from '../Modal2';
 import user from '../../../assets/user.png';
 import Modal1 from '../Modal1';
 import { getUniqueId } from '../../../helpers/getUniqueId';
-import { uploadPostImage,uploadPostVideo } from '../../../api/ImageUpload';
+import { uploadPostImage,uploadPostVideo,uploadImage } from '../../../api/ImageUpload';
 import { getCurrentTimeStamp } from '../../../helpers/useMoment';
-import CourseCard from '../CourseCard';
+import MentorCard from "../MentorCard"
 import "./index.scss"
+import MaterialUploadModal from '../MaterialUpload';
 export default function MentorPage({ currentUser }) {
   let userEmail = localStorage.getItem('userEmail');
   const [modalOpen, setModalOpen] = useState(false);
@@ -17,10 +18,13 @@ export default function MentorPage({ currentUser }) {
   const [CourseName, setCourseName] = useState('');
   const [Price, setPrice] = useState('');
   const [allStatuses, setAllStatuses] = useState([]);
-  const [postImage, setPostImage] = useState('');
+  const [postImage, setPostImage] = useState('')
+  const [progress, setProgress] = useState(0);;
   const [postVideo,setPostVideo] = useState('');
+  const [currentImage, setCurrentImage] = useState({});
   const [modal2Open, setModal2Open] = useState(false);
   const [modal1Open, setModal1Open] = useState(false);
+  const [modal3Open, setModal3Open] = useState(false);
   const [Feature1,setFeature1] = useState('');
   const [Feature2,setFeature2] = useState('');
   const [Feature3,setFeature3] = useState('');
@@ -28,7 +32,11 @@ export default function MentorPage({ currentUser }) {
   const [Feature5,setFeature5] = useState('');
   const [Feature6,setFeature6] = useState('');
   const [description,setdescription] = useState('');
+  const [isEdit,setisEdit] = useState(false);
 const [postID,setPostID] = useState('');
+const getImage = (event) => {
+  setCurrentImage(event.target.files[0]);
+};
   const sendStatus = async () => {
     let object = {
       status: status,
@@ -66,10 +74,21 @@ const [postID,setPostID] = useState('');
     };
     await videotatus(object);
     setModal2Open(false);
+    setModal3Open(true);
     setStatus('');
   };
   const imageSrc = currentUser.imageLink ? currentUser.imageLink : user;
-  console.log(getCurrentTimeStamp('LLL'));
+
+  const getEditData = (posts) => {
+    setModalOpen(true);
+setStatus(posts?.status);
+setisEdit(true);
+  }
+
+  const updateStatus = () =>
+  {
+    console.log(status)
+  }
    
   useMemo(() =>{
     getMentorPosts (setAllStatuses,userEmail);
@@ -85,7 +104,11 @@ const [postID,setPostID] = useState('');
         <p className='mine'> Mentor {currentUser.name}</p>
         <BsBookmark  className='bsbook'/>
         <p className='yourcourse'>Your Courses</p>
-          <button className='open-course-modal' onClick={() => setModalOpen(true)}>
+          <button className='open-course-modal' onClick={() => 
+            {
+              setModalOpen(true)
+              setisEdit(false)
+          }}>
           <div className='booking'>
            <BsBookmark className='bookmark' />
            <p className='add-course'> Add New</p>
@@ -108,10 +131,15 @@ const [postID,setPostID] = useState('');
         Price={Price}
         setPrice={setPrice}
         uploadPostVideo ={uploadPostVideo }
+        isEdit={isEdit}
+        setisEdit={setisEdit}
+        updateStatus={updateStatus}
         
       />
       <Modal2 
         modal2Open={modal2Open}
+        modal3Open={modal3Open}
+        setModal3Open={setModal3Open}
         setModal2Open={setModal2Open}
         postVideo={postVideo}
         setPostVideo={setPostVideo}
@@ -142,11 +170,23 @@ const [postID,setPostID] = useState('');
 
       />
 
+      <MaterialUploadModal
+       getImage={getImage}
+       uploadImage={uploadImage}
+       modal3Open={modal3Open}
+       setModal3Open={setModal3Open}
+       currentImage={currentImage}
+       progress={progress}
+       modal2Open={modal2Open}
+      setModal2Open={setModal2Open}
+      CourseName={CourseName}
+       />
+
       <div className='Mentor-cards'>
         {allStatuses.map((posts) => (
           <div key={posts.id}>
             <div className='mentor-posts'>
-            <CourseCard posts={posts} id={posts.id} />
+            <MentorCard posts={posts} id={posts.id} getEditData={getEditData} />
             </div>
           </div>
         ))}

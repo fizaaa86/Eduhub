@@ -7,7 +7,7 @@ export default function Chat() {
     useMemo(() => {
         getAllUsers(setUsers);
       }, []);
-      console.log(users);
+     
   return (
     <div className='chatpage'>
          <div className="leftContainer">

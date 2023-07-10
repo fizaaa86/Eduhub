@@ -18,3 +18,48 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
 }
+.mycourses
+{
+    margin-left: -445px;
+    margin-top: 20px;
+    font-family: montserrat;
+    font-weight: 700;
+}
+.myimages
+{width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin:10px;
+    border:1px solid rgba(0, 184, 248, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+.mycoursehead
+{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.mycoursesec
+{
+    margin-left: 340px;
+    margin-top: 60px;
+    border:2px solid #34d399;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 71%;
+cursor: pointer;
+}
+.mycoursesec:hover
+{
+    background-color: whitesmoke;
+}
+.mycoursestat
+{
+    font-family: montserrat;
+    font-weight: 500;
+    padding-left: 10px;
+    margin-top: 0px;
+
+}

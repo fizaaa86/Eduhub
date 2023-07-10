@@ -27,7 +27,10 @@ const ModalComponent = ({
     Feature5,
     setFeature5,
     modal1Open,
-     setModal1Open
+     setModal1Open,
+     isEdit,
+     setisEdit,
+     updateStatus
     
     
 
@@ -54,13 +57,14 @@ const ModalComponent = ({
         footer={[
           <Button 
             onClick={() =>{
+               
               setModal1Open(true);
             }}
             key="submit" 
             type="primary" 
             disabled={status.length > 0 ? false : true}
           >
-            Upload
+           {isEdit ? "Update" : "Post"}
           </Button>,
         ]}
       >
@@ -73,12 +77,20 @@ const ModalComponent = ({
             value={CourseName}
           />
           <input
-            onChange={(event) => setStatus(event.target.value)}
-            className="common-input"
-            placeholder="Course-Description"
-            name="status"
-            value={status}
-          />
+  onChange={(event) => {
+    if (isEdit) {
+      // Call the updateStatus function or perform the update logic
+      updateStatus(event.target.value);
+    } else {
+      setStatus(event.target.value);
+    }
+  }}
+  className="common-input"
+  placeholder="Course-Description"
+  name="status"
+  value={status}
+/>
+
           <input
             onChange={(event) =>  setPrice(event.target.value)}
             className="common-input"

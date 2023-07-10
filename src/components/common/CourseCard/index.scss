@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-
+@font-face {
+  font-family: 'Apercu Mono Pro Regular';
+  src: url("C:\Users\User\Desktop\ApercuMonoProRegular.ttf") format('woff2'),
+       url('path/to/font-file.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 .posts-card {
-  cursor: pointer;
-  border: 1px solid rgb(165, 164, 164);
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  cursor:pointer;
+  background-color: white;
+  border: 2px solid   rgba(0, 0, 0, 0.6);
+  
   width: 900px;
   height: 150px;
   padding: 10px;
+
   margin-top: 100px;
   padding-bottom: 20px;
   display: flex;
@@ -34,7 +40,7 @@
 }
 
 .name {
-  font-family: system-ui, sans-serif;
+  font-family: 'Apercu Mono Pro Regular', monospace;
   font-size: 12px;
   color: #678ed7;
   font-weight: 600;
@@ -54,8 +60,9 @@
 }
 
 .timestamp {
-  font-family: system-ui, sans-serif;
-  font-size: 12px;
+  font-family: 'Apercu Mono Pro Regular', monospace;
+  font-size: 13px;
+  font-weight: 900;
   color: rgba(0, 0, 0, 0.5);
   font-weight: 400;
   margin-top: -30px;
@@ -103,7 +110,7 @@
   font-size: 19px;
 }
 
-.likings
+.mentorliking
 {
   margin-left: 248px;
   margin-top: -20px;
@@ -143,8 +150,9 @@
 }
 .post-photo {
   cursor: pointer;
+  border: 2px solid  rgba(0, 0, 0, 0.6);
   width: 190px;
   height: 140px;
-  margin-top: -133px;
-  margin-left: -5px;
+  margin-top: -142px;
+  margin-left: 0px;
 }

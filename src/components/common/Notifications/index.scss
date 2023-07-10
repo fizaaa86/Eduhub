@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Apercu Mono Pro Regular';
+    src: url("C:\Users\User\Desktop\ApercuMonoProRegular.ttf") format('woff2'),
+         url('path/to/font-file.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+.notifications
+{
+    margin-left: 17%;
+}
+.notify-header
+{
+font-family: montserrat;
+font-weight: 900;
+font-size: 25px;
+margin-top: -5px;
+margin-left: -400px;
+}
+.msg-header
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.notify-icon
+{
+    font-size: 29px;
+}
+.messages
+{
+    border:2px solid rgba(0, 184, 248, 0.5);
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    margin-left: -30px;
+   
+}
+
+.messenger-pic
+{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border:2px solid rgba(0, 184, 248, 0.5);
+ margin: 10px;
+}
+.messenger-detail
+{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.messenger
+{
+    margin-left: -610px;
+    font-family: montserrat;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.messenger-course
+{
+    font-size: 10px;
+    font-family: montserrat;
+    margin-left: 68px;
+    margin-top: -28px;
+}
+.User-Q
+{
+    font-family: montserrat;
+    font-weight: 600;
+    margin-left: 65px;
+}
+.user-time
+{
+    margin-left: 68px;
+    font-size: 9px;
+    margin-top: -10px;
+    font-family: 'Apercu Mono Pro Regular', monospace;
+    color: #678ed7;
+
+}
+.message-box
+{
+    border-style: none;
+    outline: none;
+}
+.message-input
+{
+    border:2px solid black;
+    margin-left: 68px;
+    width: 20%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.Answer-btn
+{
+    margin-left: 62px;
+    height: 30px;
+   background-color: white;
+    border: none;
+    cursor: pointer;
+}
+.Answer-btn:hover
+{
+    background-color: whitesmoke;
+}

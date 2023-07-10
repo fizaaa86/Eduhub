@@ -1,232 +1,261 @@
 $Eduhub2: #0073b1;
 $Eduhub3: #004c75;
-.Cusat-detail
-{
 
-
-   
-    height: 600px;
-    
+.mainPage {
+  border-radius: 15px;
  
-    border-radius: 5px;
-  
-
-   
-
-  
-
-    .posting-photo
-    {
-        height: 200px;
-    padding: 50px;
-        width: 300px;
-    }
-
-    .Cusat-detail-header
-    {
-        
-        
-       
-       
-        margin-top: 5px;
-       
-       .posting-coursename-footer
-       {
-        font-family:'Montserrat',sans-serif; 
-        font-weight: 900;
-        margin-top: -15px;
-        margin-left: 50px;
-       }
-        
-    .Cusat-coursename
-    {
-        font-size: 40px;
-        font-family: 'Montserrat',sans-serif;
-        font-weight: 900;
-        margin-left: 30px;
-      padding: 20px;
-        margin-bottom: 0px;
-    }
-
-    .left-section
-    {
-        display: flex;
-        justify-content: space-between;
-    }
-    .bottom
-    {
-        display: flex;
-        justify-content: center;
-    }
-    .bottomer
-    {
-        font-family: 'Montserrat',sans-serif;
-        font-size: 20px;
-        margin-left: 300px;
-        width: 30%;
-        margin-top: -20px;
-       font-weight: 900px;
-    }
-    .cusat-img
-    {
-        width:100px;
-        height: 100px;
-        margin-left: 50px;
-      margin-top: 30px;
-    }
-    .Cusat-title{
-        display: flex;
-        justify-content: space-between;
-        background-color: rgba(0, 0, 0);
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        color: rgba(250,250,250);
-        
-    }
-    .image-loader
-    {
-        margin-left:800px;
-    }
-    .blue-underline
-    {
-        cursor: pointer;
-        text-decoration: underline;
-        color: rgb(106, 165, 237);
-    }
-    .course-owner{
-        margin-left:50px ;
-        font-family: 'Poppins';
-        font-size: 13px;
-        margin-bottom:0px ;
-    }
-    .Course-date
-    {
-        margin-left:50px ;
-        margin-top: 0px;
-        font-size: 12px;
-            font-family: 'Poppins';
-    }
-    .sub
-    {
-        display: flex;
-        justify-content: space-between;
-       
-    }
-    .Course-Pricing
-    {
-        font-family: 'Montserrat',sans-serif;
-        font-weight: 900;
-        font-size: 35px;
-        margin-top: 0px;
-    }
-    
-    }
-    
-
-
-.desc-heading
+  background-color: #49c5b6;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+}
+.Cusat-short-title
 {
+    color: rgb(69,69,69);
+    font-family: montserrat;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 20px;
+}
+.Cusat-detail {
+  color: rgba(250, 250, 250);
+
+  .Cusat-detail-header {
+    .Cusat-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 500px;
+      padding: 0 50px;
+
+      .title {
+        display: flex;
+        align-items: center;
+
+        .Cusat-caption {
+          display: flex;
+          align-items: center;
+          margin-top: -300px;
+          margin-left: 40%;
+
+          .cap {
+            width: 180px;
+            margin-top: 50px;
+            margin-right: 10px;
+          }
+
+          .Cusat-coursename {
+            font-size: 80px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            justify-content: center;
+            margin-bottom: 0;
+            line-height: 1;
+          }
+        }
+
+        .Bottomer {
+          margin-left: 0;
+          font-size: 30px;
+          font-family: montserrat;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .Cusat-desc {
+    margin-top: -200px;
+    margin-left: 50px;
+
+    .Cusat-desc-heading {
+      font-family: Montserrat;
+      color: rgb(69,69,69);
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
+
+    .desc-sub {
+      font-family: Montserrat;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+  }
+
+  .Cusat-mini-title {
+    margin-top: 30px;
+    color: rgb(69,69,69);
+    margin-left: 45px;
     font-family: Montserrat;
     font-size: 25px;
     font-weight: 900;
-    margin-bottom: -10px;
     text-decoration: underline;
-}
+  }
 
-.App-desc
-{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+  .mini-features {
     margin-left: 50px;
-    margin-top: 0px;
-}
-
-.desc-sub
-{
-    
     font-family: Montserrat;
     font-size: 18px;
+  
 
-    line-height: 2.5;
-}
-.mini-title
-{
-    margin-top: 30px;
-    margin-left: 50px;
-    font-family: Montserrat;
-    font-size: 25px;
-    font-weight: 900;
-    text-decoration: underline;
-}
-    .mini-features
-    {
-        
-        display: flex;
-       margin-left: 50px;
-        font-family: Montserrat;
-        font-size: 18px;
-       
-        
-     
-       
+    .rows {
+      margin-left: 0px;
+      margin-top: 60px;
+      line-height: 1.5;
+      list-style:decimal;
+      font-weight: 600;
     }
-    ul 
-    {
-        
-        
-    }
-    li
-    {
-        list-style:none;
-        
-        
-    }
-   .short-title
-   {
-    font-weight: 700;
-    margin-bottom: 5px;
-    text-decoration: underline;
-    font-size: 20px;
-   }
-   .rows
-   {
-    margin-left: -40px;
-    margin-top: -20px;
-    line-height: 2.5;
-   }
-   .selection
-   {
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  .selection {
     height: 40px;
- width: 200px;
-  background-color: rgb(255, 255, 255);
-  outline: none;
-  border: 1px solid #212121;
-  font-family: Montserrat;
-  font-weight: 600;
-  color: #212121;
-  border-radius: 3px;
-  margin: 10px 0px;
-   }
-   .selection:focus {
-    outline: 1px solid #0072b1;;
+    width: 200px;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #212121;
+    font-family: Montserrat;
+    font-weight: 600;
+    color: #212121;
+    border-radius: 3px;
+    margin: 10px 0;
+
+    &:focus {
+      outline: 1px solid #0072b1;
+    }
   }
-  .footer-heading
-  {
+
+  .footer-heading {
     font-weight: 700;
     margin-bottom: 5px;
     font-family: Montserrat;
+    color:rgb(69,69,69);
+    text-decoration: underline;
     font-size: 20px;
-   
   }
-  .footer
-  {
+
+  .cusat-footer {
     margin-left: 50px;
-    margin-bottom: 90px;
+    margin-top: 50px;
+    margin-bottom: -60px;
     height: 300px;
   }
+}
+
+.goto-course-button {
+  padding: 10px 20px;
+  background-color: rgb(236, 3, 3);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $Eduhub3;
+  }
+}
+
+.Cusat-coursename {
+  white-space: nowrap;
+  overflow: hidden;
 
 }
 
+.cs-page
+{
+    border-radius: 15px;
+    height: 900px;
+    border: 35px solid black;
+    background-color: #49c5b6;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+.Branch
+{
+    font-family: montserrat;
+    white-space: nowrap;
+  overflow: hidden;
+  font-size: 50px;
+ 
 
+}
+.cs-footer
+{
+    margin-top: -200px;
+    height: 600px;
+    margin-left: 100px;
+}
+.Cusat-cs-caption {
+    display: flex;
+    align-items: center;
+    margin-top: -300px;
+   margin-left: 10%;
+}
+.comp
+{
+    width: 180px;
+}
+.Branch-desc-heading {
+    font-family: Montserrat;
+    color: rgb(69,69,69);
+    font-size: 25px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    margin-left: -10px;
+    text-decoration: underline;
+  }
+  .QPbox
+  {
+    
+    width: 20%;
+    margin-left: 0px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .QPbox:hover
+  {
+    background-color: rgb(155, 152, 152);
+  }
+  .Resources
+  {
+    margin-top: 50px;
+     padding: 10px 20px;
+  background-color: rgb(236, 3, 3);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
 
-
+  &:hover {
+    background-color: $Eduhub3;
+  }
+  }
+  .cusat-footer-heading
+  {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    color:rgb(69,69,69);
+    text-decoration: underline;
+    font-size: 20px;
+    margin-top: 350px;
+  }

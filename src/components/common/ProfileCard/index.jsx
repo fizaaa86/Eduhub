@@ -10,6 +10,7 @@ import ProfileModal from "../ProfileModal";
 
 export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
+
   const [modalOpen, setModalOpen] = useState(false);
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
@@ -19,7 +20,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
   };
-  console.log(localStorage.getItem("userEmail"));
+ 
   const uploadImage = () => {
     uploadImageAPI(
       currentImage,
@@ -29,7 +30,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
       setCurrentImage
     );
   };
-console.log(currentProfile);
+
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatus, location?.state?.id);
@@ -39,6 +40,7 @@ console.log(currentProfile);
       getSingleUser(setCurrentProfile, location?.state?.email);
     }
   }, []);
+
 
   return (
     <>
@@ -97,6 +99,7 @@ console.log(currentProfile);
             >
               Contact info
             </button>
+            <h1></h1>
           </div>
         </div>
       </div>

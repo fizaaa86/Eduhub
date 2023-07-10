@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+/* custom.css */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.helpbot-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 550px;
+}
+
 .Course-status-main {
   display: flex;
   justify-content: center;
@@ -17,7 +30,7 @@
     border-radius: 10px;
     height: 150px;
     border: 2px solid #bbbb;
-    background-color:whitesmoke;
+   
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-left: 0px;
     display: flex;

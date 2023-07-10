@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Apercu Mono Pro Regular';
+  src: url("C:\Users\User\Desktop\ApercuMonoProRegular.ttf") format('woff2'),
+       url('path/to/font-file.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 .Videos {
     display: flex;
    flex-direction: column;
@@ -79,17 +86,32 @@
     font-family: montserrat;
     font-weight: 900;
   }
-  .chat-button
+  .Doubts
   {
-    background-color: #34d399;
+    background-color: #227ad3;
     font-family: montserrat;
-    margin-top: 50px;
+   
     width: auto;
     height: 40px;
     color: white;
     font-size: 20px;
     font-weight: 900;
-    margin-left: 20px;
+margin-left: 100px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .chat-button
+  {
+    background-color: #34d399;
+    font-family: montserrat;
+   
+    width: auto;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+ margin-left: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -101,13 +123,26 @@
   .Videosection
   {
     border: 3px solid black;
-    margin: 10px;
+    margin: 30px;
     border-radius: 15px;
+  }
+  .Chats
+  {
+    margin: 40px;
   }
 .plane
 {
   padding-left: 5px;
   font-size: 18px;
+}
+.Question
+{
+  padding-left: 5px;
+  font-size: 18px;
+}
+.Doubts:hover
+{
+  background-color: #042c53;
 }
   .videosource
   {
@@ -155,7 +190,7 @@
     background-color: rgb(244, 239, 239);
     height: 120px;
     width: 800px;
-    margin-left: 250px;
+    margin-left: -50px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     
   }
@@ -204,3 +239,202 @@
     margin-bottom: 15px;
     border-radius: 7px;
   }
+  .PDFs
+  {
+    border: 3px solid black;
+    margin: 30px;
+    border-radius: 15px;
+    padding-bottom: 50px;
+  }
+  .Materialbox
+  {
+
+    width: 10%;
+    margin-left: 30px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+  .Materialbox:hover
+  {
+    background-color: rgb(222, 224, 227);
+  }
+  .pdficon
+  {
+    font-size: 40px;
+    margin-left: 5%;
+    color: red;
+  }
+  .pdftags
+  {
+  margin-top: 8px;
+  font-size: 19px;
+    font-family: montserrat;
+    font-weight: 900;
+  }
+.doubts-button
+{
+  background-color: #227ad3;
+    font-family: montserrat;
+   
+    width: auto;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+ margin-left: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.doubts-button:hover
+{
+  background-color: #063463;
+}
+.doubts-header
+{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.close-button
+{
+  width: 20px;
+  border: none;
+  outline: none;
+  background-color: aliceblue;
+  cursor: pointer;
+  margin-left: -685px;
+  margin-top: 4px;
+}
+.close-circle
+{
+  font-size: 20px;
+  color: rgb(208, 27, 27);
+}
+.close-circle:hover
+{
+  color:rgb(128, 17, 17) ;
+}
+.doubt-userimage
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border:2px solid rgba(0, 184, 248, 0.5);
+}
+.doubt-box-cont
+{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.doubt-person
+{
+  margin-left: -615px;
+  font-family: montserrat;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.doubt-time
+{
+  font-size: 10px;
+  font-family: 'Apercu Mono Pro Regular', monospace;
+  color: #678ed7;
+  margin-top: -20px;
+  margin-left: 59px;
+}
+.doubt-content
+{
+  margin-left: 54px;
+  font-family: montserrat;
+  font-weight: 500;
+  margin-top: 0px;
+}
+.doubt-message
+{
+  border:2px solid rgba(0, 184, 248, 0.5);
+  margin-top: 30px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px;
+  padding: 5px;
+  width: 90%;
+  margin-left: 0px;
+}
+.mentor-img
+{
+  width: 50px;
+  border-radius: 50%;
+  border:2px solid  #34d399;
+  background-color: whitesmoke;
+}
+.Answers
+{
+  border: 1px solid black;
+  margin-left: 10%;
+width: 80%;
+  border:3px solid  #34d399;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px;
+}
+.answer-user-detail
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+.answer-person
+{
+  margin-left: -535px;
+  font-family: montserrat;
+  font-weight: 600;
+  margin-top: 9px;
+}
+.answer-time
+{font-size: 10px;
+  font-family: 'Apercu Mono Pro Regular', monospace;
+  color: #678ed7;
+  margin-top: -30px;
+  margin-left: 65px;
+
+}
+.answer-comment
+{
+  font-family: montserrat;
+  margin-left: 60px;
+  font-weight: 500;
+  margin-top: 0px;
+  padding-bottom: 3px;
+}
+.doubts-input
+{
+  border: 2px solid black;
+  border-radius: 5px;
+  width:25%;
+  background-color: white;
+  margin-top:100px
+}
+.my-doubts
+{
+  border: none;
+  outline: none;
+height: 30px;
+
+}
+.doubt-btn
+{
+ margin-left: 160px;
+ height: 38px;
+ border: 1.6px solid black;
+ cursor: pointer;
+ background-color: white;
+}
+.doubt-send
+{
+  font-size: 18px;
+}

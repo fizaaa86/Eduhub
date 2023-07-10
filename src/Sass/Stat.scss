@@ -1,0 +1,87 @@
+.Stat-main
+{
+    margin-left: 20%;
+}
+.stat-courses
+{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border:2px solid rgba(0, 184, 248, 0.5);
+    background-color: white;
+    margin-left: -60px;
+}
+.stat-CourseName
+{
+    font-size: 20px;
+    font-family: montserrat;
+    font-weight: 900;
+    margin-left: -585px;
+    margin-top: 12px;
+
+}
+.students
+{
+    padding-left: 20px;
+    font-size: 18px;
+    font-family: montserrat;
+    font-weight: 600;
+ 
+}
+.stat-description
+{
+    padding-left: 20px;
+    font-family: montserrat;
+    font-weight: 500;
+}
+.stat-img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border:2px solid rgba(0, 184, 248, 0.5);
+}
+.stat-header
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+   
+}
+.student
+{
+    margin-left: -590px;
+    font-family: montserrat;
+    font-weight: 500;
+
+}
+.user-students
+{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border:2px solid rgba(0, 184, 248, 0.5);
+}
+.user-contents
+{
+    display: grid;
+   grid-template-columns: auto auto;
+   margin-top: 10px;
+   margin-left: 20px;
+}
+.Income
+{
+    font-size: 20px;
+    font-family: montserrat;
+    margin-left: 20px;
+    font-weight: 600;
+}
+.Header
+{
+    font-weight: 900;
+    font-family: montserrat;
+    font-size: 30px;
+    margin-left: -50px;
+}

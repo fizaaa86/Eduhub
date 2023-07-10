@@ -19,7 +19,7 @@ export default function SideBar() {
     <div className='react-icons'>
       <div className='logo-container'>
         <img className='logo' src={Logo} alt="Logo" />
-        <h1 className='logo-label'>EduHub</h1>
+        <h1 className='logo-name'>EduHub</h1>
       </div>
     <div className='react-icon'>
   <div className='icon-only'>
@@ -35,7 +35,7 @@ export default function SideBar() {
         <div className='icon-only'>
              <BsGraphUpArrow size={20} />
         </div> 
-        <span className="icon-label underline" >Statistics</span>
+        <span className="icon-label underline"onClick={() => goToRoute("/stat")} >Statistics</span>
   <hr className="horizontal-line" />
   </div>
         <div className='react-icon'>
@@ -49,16 +49,10 @@ export default function SideBar() {
         <div className='icon-only'>
         <AiFillMessage size={20} />
         </div> 
-        <span className="icon-label underline">Notifications</span>
+        <span className="icon-label underline" onClick={() => goToRoute("/messages")}>Notifications</span>
   <hr className="horizontal-line" />
   </div>
-        <div className='react-icon'>
-        <div className='icon-only'>
-        <AiOutlineLogout size={20}/>
-        </div> 
-        <span className="icon-label underline">Logout</span>
-  <hr className="horizontal-line" />
-  </div>
+        
     </div>
   )
 }

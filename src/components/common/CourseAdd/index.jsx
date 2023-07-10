@@ -2,10 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { getStatus } from '../../../api/FirestoreAPI';
 import './index.scss';
 import { AiFillHome } from 'react-icons/ai';
-
+import HelpBot from '../HelpBot';
 import CourseCard from '../CourseCard';
 import user from '../../../assets/user.png';
 import Search from '../Search';
+
 export default function CourseStatus({ currentUser }) {
   const [allStatuses, setAllStatus] = useState([]);
   const [searchInput, setsearchInput] = useState("");
@@ -18,9 +19,9 @@ export default function CourseStatus({ currentUser }) {
   return (
     <>
       <div className='Course-status-main'>
-      <div className='searches'>
-        <Search setsearchInput={setsearchInput} searchInput={searchInput} />
-      </div>
+        <div className='searches'>
+          <Search setsearchInput={setsearchInput} searchInput={searchInput} />
+        </div>
         <img className='user-img' src={imageSrc} alt="user" />
         <p className='welcoming'>Welcome,</p>
         <p className='my'> Student {currentUser.name}</p>
@@ -38,6 +39,9 @@ export default function CourseStatus({ currentUser }) {
               </div>
             );
           })}
+        </div>
+        <div className='helpbot-container'>
+        
         </div>
       </div>
     </>

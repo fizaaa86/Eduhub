@@ -20,7 +20,8 @@ let videoRef = collection(firestore,"Videos");
 let userRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "Reviews");
-let connectionRef = collection(firestore, "connections");
+let DoubtRef = collection(firestore, "Doubts");
+let AnswerRef = collection(firestore, "Answers");
 
 export const courseStatus = (object) => {
   addDoc(postsRef, object)
@@ -234,6 +235,40 @@ export const postComment = (postId,comment,timeStamp,name,imageLink) => {
     console.log(err)
   }
 }
+
+
+export const postDoubts = (postId,doubtsMessage,timeStamp,name,imageLink,CourseName) => {
+  try{
+      addDoc(DoubtRef,{
+        postId,
+        doubtsMessage,
+        timeStamp,
+        name,
+        imageLink,
+        CourseName,
+      })
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+export const postAnswers = (doubtsMessage,timeStamp,name,imageLink,CourseName) => {
+  try{
+      addDoc(AnswerRef,{
+      
+        doubtsMessage,
+        timeStamp,
+        name,
+        imageLink,
+        CourseName,
+      })
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+
 export const getComments = (postId,setComment) => {
   try {
     let singlePostQuery = query(commentsRef, where("postId", "==", postId));
@@ -248,6 +283,33 @@ export const getComments = (postId,setComment) => {
 
       setComment(comments);
     });
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const getDoubts = (postId,setComment) => {
+  try {
+    let singlePostQuery = query(DoubtRef, where("postId", "==", postId));
+
+    onSnapshot(singlePostQuery, (response) => {
+      const Doubts = response.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+
+      setComment(Doubts);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const deletePost = (id) => {
+  let docToDelete = doc(postsRef, id);
+  try {
+    deleteDoc(docToDelete);
+    toast.success("Course has been Deleted!");
   } catch (err) {
     console.log(err);
   }

@@ -14,7 +14,7 @@ export default function LikeButton({ userId, postId }) {
   const likeIconStyle = {
     color: isLiked ? ' red' : 'inherit',
   };
-  console.log(likesCount);
+ 
 useMemo(()=> {
   getLikesByUser(userId,postId,setIsLiked,setLikesCount);
 },[])

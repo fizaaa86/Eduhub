@@ -4,6 +4,15 @@ $Eduhub3: #004c75;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap");
   @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
   @import url("./components/common/Loader/common.scss");
+/* custom.css */
+
+@font-face {
+  font-family: 'Apercu Mono Pro Regular';
+  src: url("C:\Users\User\Desktop\ApercuMonoProRegular.ttf") format('woff2'),
+       url('path/to/font-file.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -12,7 +21,7 @@ $Eduhub3: #004c75;
 
   color-scheme: light dark;
   color: #212121;
-  background-color:white;
+  background-color:aliceblue;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
