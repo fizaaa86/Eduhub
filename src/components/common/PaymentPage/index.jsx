@@ -5,7 +5,7 @@ import HeadBar from "../HeadBar";
 import "./index.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { updateUserCourses } from "../../../api/FirestoreAPI";
 export default function PaymentPage() {
   const [items, setItems] = useState([]);
   const [cardNumber, setCardNumber] = useState("");
@@ -24,6 +24,7 @@ export default function PaymentPage() {
       toast.error("Please enter a valid CVV.");
     } else {
       toast.success("Payment successful!");
+      updateUserCourses(items[0].postingid, items[0].userid);
       navigate("/mycourses");
     }
   };
@@ -97,14 +98,15 @@ export default function PaymentPage() {
                 onChange={(e) => setCVV(e.target.value)}
               />
             </div>
-            <button className="btn" onClick={validateForm}>
+            {/* <button className="btn" onClick={validateForm}>
               OK
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="Payment-right">
           <div className="Payment-right-sub">Summary</div>
           <div className="Payment-right-down">
+            {console.log(items)}
             {items.map((item) => (
               <div key={item.id}>
                 <p className="Selected-course">{item.CourseName}</p>

@@ -46,7 +46,7 @@ function ChatComponent() {
     <div className="Chatroom">
       <div className={styles.appContainer}>
         <section className={styles.sectionContainer}>
-          {/* Navbar */}
+          {/* Side Navbar */}
           <ChatNavbar currentCourse={currentCourse} postImage={postImage} />
           <Chat currentCourse={currentCourse} />
         </section>

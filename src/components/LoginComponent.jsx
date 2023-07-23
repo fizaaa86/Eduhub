@@ -30,15 +30,12 @@ export default function LoginComponent() {
     navigate("/dashboard");
   };
 
- 
-
   return (
     <div className="login-container">
       <div className="login-wrapper">
         <img className="login-image" src={img} alt="iphone-mockup" />
         <Navbar className="navbar" />
         <div className="login-wrapper-inner">
-         
           <div className="login-right">
             <h1 className="headings"></h1>
 
@@ -46,17 +43,13 @@ export default function LoginComponent() {
 
             <div className="auth-inputs">
               <input
-                onChange={(event) =>
-                  setCredentials({ ...credentials, email: event.target.value })
-                }
+                onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
                 type="email"
                 className="common-input"
                 placeholder="Email or Phone"
               />
               <input
-                onChange={(event) =>
-                  setCredentials({ ...credentials, password: event.target.value })
-                }
+                onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
                 type="password"
                 className="common-input"
                 placeholder="Password"

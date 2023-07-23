@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import './index.scss';
-import { useLocation } from 'react-router-dom';
-import { getSingleStatus, createFirestoreCollection } from '../../../api/FirestoreAPI';
-import { useNavigate } from 'react-router-dom';
-import PaymentPage from '../PaymentPage';
-import { AiOutlineComment } from 'react-icons/ai';
-import { getComments } from '../../../api/FirestoreAPI';
-
+import React, { useEffect, useState, useMemo } from "react";
+import "./index.scss";
+import { useLocation } from "react-router-dom";
+import { getSingleStatus, createFirestoreCollection } from "../../../api/FirestoreAPI";
+import { useNavigate } from "react-router-dom";
+import PaymentPage from "../PaymentPage";
+import { AiOutlineComment } from "react-icons/ai";
+import { getComments } from "../../../api/FirestoreAPI";
+import { updateUserCourses } from "../../../api/FirestoreAPI";
 export default function CourseDetails({ currentUser, id }) {
   let location = useLocation();
   let navigate = useNavigate();
@@ -28,13 +28,15 @@ export default function CourseDetails({ currentUser, id }) {
     });
   }, [posts]);
 
-  const handleCreateCollection = (data) => {
-    createFirestoreCollection(data);
+  const handleCreateCollection = (data, postingid, userid) => {
+    createFirestoreCollection(data, postingid, userid);
   };
 
-  const handleBuyClick = (data) => {
-    handleCreateCollection(data);
-    navigate('/payment');
+  const handleBuyClick = (data, postingid) => {
+    //console.log(postingid, currentUser.id);
+    handleCreateCollection(data, postingid, currentUser.id);
+    //updateUserCourses(postingid, currentUser.id);
+    navigate("/payment");
   };
 
   const handleCloseReview = () => {
@@ -54,6 +56,7 @@ export default function CourseDetails({ currentUser, id }) {
 
           return (
             <div key={posting.id}>
+              {console.log(posting)}
               <div className="Course-title">
                 <div className="left-part">
                   <p className="posting-coursename">{posting.CourseName}</p>
@@ -61,11 +64,11 @@ export default function CourseDetails({ currentUser, id }) {
                   <div className="sub">
                     <div className="sub-left">
                       <p className="course-owner">
-                        Created by{' '}
+                        Created by{" "}
                         <span
                           className="blue-underline"
                           onClick={() =>
-                            navigate('/profile', {
+                            navigate("/profile", {
                               state: { id: posting?.userID, email: posting.userEmail },
                             })
                           }
@@ -85,9 +88,8 @@ export default function CourseDetails({ currentUser, id }) {
                 <p className="desc-heading">Description</p>
                 <div className="desc-sub">{posting.description}</div>
               </div>
-              <h1 className='Course-Features'>Course Features</h1>
+              <h1 className="Course-Features">Course Features</h1>
               <div className="App-features">
-               
                 <ul>
                   <div className="row">
                     <li>{posting.Feature1}</li>
@@ -109,16 +111,14 @@ export default function CourseDetails({ currentUser, id }) {
                   <p className="User-give-review">User Reviews</p>
                 </div>
                 <div className="Userreviews">
-                
                   {comments.map((comment, index) => (
                     <div key={index} className="User-review-section">
-                      <div className='user-review-user-detail'>
-                      <img className='review-pic' src={comment.imageLink} />
-                      <p className='user-review-username'>{comment.name}</p>
+                      <div className="user-review-user-detail">
+                        <img className="review-pic" src={comment.imageLink} />
+                        <p className="user-review-username">{comment.name}</p>
                       </div>
-                      <p className='user-review-time'>{comment.timeStamp}</p>
-                      <p className='User-Comment'>"{comment.comment}"</p>
-                     
+                      <p className="user-review-time">{comment.timeStamp}</p>
+                      <p className="User-Comment">"{comment.comment}"</p>
                     </div>
                   ))}
                 </div>
@@ -137,7 +137,7 @@ export default function CourseDetails({ currentUser, id }) {
           };
 
           return (
-            <button key={posting.id} className="Payment" onClick={() => handleBuyClick(data)}>
+            <button key={posting.id} className="Payment" onClick={() => handleBuyClick(data, posting.id)}>
               Purchase
             </button>
           );

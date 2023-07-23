@@ -13,6 +13,7 @@ import {
   serverTimestamp,
   getDocs,
 } from "firebase/firestore";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 let postsRef = collection(firestore, "Courses");
@@ -191,14 +192,16 @@ export const getPosts = async (setPosts) => {
 export const Amount = (price) => {
   return <p>{price}</p>;
 };
-export const createFirestoreCollection = async (data) => {
+export const createFirestoreCollection = async (data, postingid, userid) => {
   try {
     const collectionRef = collection(firestore, "item"); // Replace 'your-collection-name' with your desired collection name
     const querySnapshot = await getDocs(collectionRef);
-
+    //console.log(data, postingid, userid);
+    const newData = { ...data, postingid, userid };
     if (querySnapshot.size === 0) {
       // Only create the document if the collection is empty
-      await addDoc(collectionRef, data); // Add the document with the provided data to the collection
+
+      await addDoc(collectionRef, newData); // Add the document with the provided data to the collection
       console.log("Collection created successfully!");
     } else {
       // Delete the existing document
@@ -207,13 +210,37 @@ export const createFirestoreCollection = async (data) => {
       });
 
       // Create a new document
-      await addDoc(collectionRef, data);
+      await addDoc(collectionRef, newData);
       console.log("Existing document deleted. New collection created successfully!");
     }
   } catch (error) {
     console.error("Error creating collection:", error);
   }
 };
+
+// Update user doc
+export const updateUserCourses = async (postingid, userid) => {
+  const [userdata, setUserData] = useState({});
+  console.log(postingid, userid);
+  const userDocRef = doc(firebase, "users", userid);
+  await updateDoc(userDocRef, { courses: { ...courses, postingid } });
+  // onSnapshot(userRef, (response) => {
+  //   setUserData(
+  //     response.docs
+  //       .map((docs) => {
+  //         return { ...docs.data(), id: docs.id };
+  //       })
+  //       .filter((item) => {
+  //         return item.email === localStorage.getItem("userEmail");
+  //       })[0]
+  //   );
+  // });
+  //console.log(userdata);
+  //const collectionRef = collection(firestore,"users",userid);
+  //await updateDoc(collectionRef, {courses:})
+};
+
+///
 
 export const postComment = (postId, comment, timeStamp, name, imageLink) => {
   try {
@@ -231,6 +258,7 @@ export const postComment = (postId, comment, timeStamp, name, imageLink) => {
 
 export const postDoubts = (postId, doubtsMessage, timeStamp, name, imageLink, CourseName) => {
   try {
+    console.log(postId, doubtsMessage, timeStamp, name, imageLink, CourseName);
     addDoc(DoubtRef, {
       postId,
       doubtsMessage,
@@ -255,8 +283,7 @@ export const postAnswers = (doubtsMessage, timeStamp, name, imageLink, CourseNam
   } catch (err) {
     console.log(err);
   }
-
-}
+};
 export const updatePost = (id, status, postImage) => {
   let docToUpdate = doc(postsRef, id);
   try {
