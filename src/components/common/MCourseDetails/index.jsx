@@ -4,10 +4,11 @@ import { useLocation } from 'react-router-dom';
 import { getSingleStatus, createFirestoreCollection } from '../../../api/FirestoreAPI';
 import { useNavigate } from 'react-router-dom';
 import PaymentPage from '../PaymentPage';
-import { AiOutlineComment,AiOutlineFilePdf} from 'react-icons/ai';
+import { AiOutlineComment,AiOutlineFilePdf,AiFillDelete} from 'react-icons/ai';
+import {MdDelete} from "react-icons/all"
 import { getComments } from '../../../api/FirestoreAPI';
 import { Document, Page, pdfjs } from 'react-pdf'; // Step 1: Import Document, Page, and pdfjs
-import { ref, getDownloadURL, listAll } from 'firebase/storage';
+import { ref, getDownloadURL, listAll ,deleteObject} from 'firebase/storage';
 import { storage } from '../../../firebaseConfig';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -82,9 +83,42 @@ export default function MCourseDetails({ currentUser, id }) {
     setShowCommentBox(false);
   };
 
+  const deleteVideo = (path) => {
+    const storageRef = ref(storage, `${decodeURIComponent(path)}`);
+    deleteObject(storageRef)
+      .then(() => {
+        console.log('Video deleted successfully.');
+        window.location.reload()
+        // Optionally, you may want to update the state to remove the deleted video URL from the videoUrls array.
+        // For simplicity, let's assume videoUrls is not updated here, and the component will refresh to reflect the changes.
+      })
+      .catch((error) => {
+        console.error('Error deleting video:', error);
+      });
+  };
+
   const handlePdfClick = (pdfUrl) => {
     navigate(`/materials?pdfUrl=${encodeURIComponent(pdfUrl)}`);
   };
+
+
+
+  function getPathStorageFromUrl(url){
+
+    const baseUrl = "https://firebasestorage.googleapis.com/v0/b/eduhub-de9b2.appspot.com/o/";
+
+    let imagePath = url.replace(baseUrl,"");
+
+    const indexOfEndPath = imagePath.indexOf("?");
+
+    imagePath = imagePath.substring(0,indexOfEndPath);
+    
+    imagePath = imagePath.replace("%2F","/");
+
+    deleteVideo(imagePath)
+}
+  
+
 
   return (
     <div className="Course-detail">
@@ -160,6 +194,7 @@ export default function MCourseDetails({ currentUser, id }) {
                         <video controls className="videosource">
                           <source src={url} />
                         </video>
+                        <MdDelete style={{"height":"70px","width":"50px"}} onClick={() => getPathStorageFromUrl(url)}/>
                       </div>
                     ))}
                 </div>
