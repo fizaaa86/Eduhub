@@ -36,6 +36,7 @@ export default function CourseDetails({ currentUser, id }) {
     //console.log(postingid, currentUser.id);
     handleCreateCollection(data, postingid, currentUser.id);
     //updateUserCourses(postingid, currentUser.id);
+    
     navigate("/payment");
   };
 
@@ -56,7 +57,7 @@ export default function CourseDetails({ currentUser, id }) {
 
           return (
             <div key={posting.id}>
-              {console.log(posting)}
+              {/* {console.log(posting)} */}
               <div className="Course-title">
                 <div className="left-part">
                   <p className="posting-coursename">{posting.CourseName}</p>

@@ -12,7 +12,7 @@ export default function PaymentPage() {
   const [expirationDate, setExpirationDate] = useState("");
   const [cvv, setCVV] = useState("");
   let navigate = useNavigate();
-
+  const [load, setLoad] = useState(false);
   const validateForm = () => {
     if (cardNumber === "" || expirationDate === "" || cvv === "") {
       toast.error("Please fill in all fields.");
@@ -24,6 +24,7 @@ export default function PaymentPage() {
       toast.error("Please enter a valid CVV.");
     } else {
       toast.success("Payment successful!");
+      console.log(items);
       updateUserCourses(items[0].postingid, items[0].userid);
       navigate("/mycourses");
     }
@@ -54,6 +55,7 @@ export default function PaymentPage() {
       } catch (error) {
         console.error("Error fetching items:", error);
       }
+      setLoad(!load);
     };
 
     fetchItems();
@@ -61,6 +63,7 @@ export default function PaymentPage() {
 
   return (
     <div className="Payment-main">
+      {console.log(load, items)}
       <HeadBar className="Headbar" />
       <div className="Payment-sub">
         <div className="Payment-left">Checkout</div>
@@ -106,7 +109,7 @@ export default function PaymentPage() {
         <div className="Payment-right">
           <div className="Payment-right-sub">Summary</div>
           <div className="Payment-right-down">
-            {console.log(items)}
+            {/* {console.log(items)} */}
             {items.map((item) => (
               <div key={item.id}>
                 <p className="Selected-course">{item.CourseName}</p>

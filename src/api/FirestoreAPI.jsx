@@ -12,6 +12,7 @@ import {
   orderBy,
   serverTimestamp,
   getDocs,
+  getDoc,
 } from "firebase/firestore";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -196,7 +197,9 @@ export const createFirestoreCollection = async (data, postingid, userid) => {
   try {
     const collectionRef = collection(firestore, "item"); // Replace 'your-collection-name' with your desired collection name
     const querySnapshot = await getDocs(collectionRef);
-    //console.log(data, postingid, userid);
+    
+    console.log("Updated Collection ",);
+
     const newData = { ...data, postingid, userid };
     if (querySnapshot.size === 0) {
       // Only create the document if the collection is empty
@@ -220,24 +223,18 @@ export const createFirestoreCollection = async (data, postingid, userid) => {
 
 // Update user doc
 export const updateUserCourses = async (postingid, userid) => {
-  const [userdata, setUserData] = useState({});
-  console.log(postingid, userid);
-  const userDocRef = doc(firebase, "users", userid);
-  await updateDoc(userDocRef, { courses: { ...courses, postingid } });
-  // onSnapshot(userRef, (response) => {
-  //   setUserData(
-  //     response.docs
-  //       .map((docs) => {
-  //         return { ...docs.data(), id: docs.id };
-  //       })
-  //       .filter((item) => {
-  //         return item.email === localStorage.getItem("userEmail");
-  //       })[0]
-  //   );
-  // });
-  //console.log(userdata);
-  //const collectionRef = collection(firestore,"users",userid);
-  //await updateDoc(collectionRef, {courses:})
+  //const [userdata, setUserData] = useState({});
+  //console.log(postingid, userid);
+
+  const userDocRef = doc(firestore, "users", userid);
+  var coursesArray = [];
+  const response = await getDoc(userDocRef);
+  const data = response.data();
+  //console.log(data.courses);
+  coursesArray = data.courses;
+  coursesArray.push(postingid);
+  console.log(coursesArray);
+  await updateDoc(userDocRef, { courses: coursesArray });
 };
 
 ///
