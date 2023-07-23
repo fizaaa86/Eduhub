@@ -84,6 +84,7 @@ export default function MCourseDetails({ currentUser, id }) {
   };
 
   const deleteVideo = (path) => {
+    console.log(path);
     const storageRef = ref(storage, `${decodeURIComponent(path)}`);
     deleteObject(storageRef)
       .then(() => {
@@ -208,10 +209,10 @@ export default function MCourseDetails({ currentUser, id }) {
                     <div
                       key={innerIndex}
                       className="Materialbox"
-                      onClick={() => handlePdfClick(url)}
                     >
                       <AiOutlineFilePdf className="pdficon" />
-                      <p className="pdftags">Material {innerIndex + 1}</p>
+                      <p className="pdftags" onClick={() => handlePdfClick(url)}>Material {innerIndex + 1}</p>
+                      <MdDelete style={{"height":"50px","width":"50px"}} onClick={() => getPathStorageFromUrl(url)}/>
                     </div>
                   ))
                 ) : (
