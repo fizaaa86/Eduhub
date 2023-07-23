@@ -1,11 +1,11 @@
-import React from 'react';
-import { auth } from '../../firebaseConfig';
-import '../../Sass/Chat.scss';
+import React from "react";
+import { auth } from "../../firebaseConfig";
+import "../../Sass/Chat.scss";
 
 const Message = ({ message }) => {
   const isSent = message.uid === auth.currentUser.uid;
-  const messageClass = isSent ? 'sent' : 'received';
-  const nameClass = isSent ? 'senderName' : 'receiverName';
+  const messageClass = isSent ? "sent" : "received txtPadding";
+  const nameClass = isSent ? "senderName" : "receiverName";
 
   return (
     <div>

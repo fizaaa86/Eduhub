@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { collection, query, getDocs } from 'firebase/firestore';
-import { firestore } from '../../../firebaseConfig';
-import HeadBar from '../HeadBar';
-import './index.scss';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import { collection, query, getDocs } from "firebase/firestore";
+import { firestore } from "../../../firebaseConfig";
+import HeadBar from "../HeadBar";
+import "./index.scss";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function PaymentPage() {
   const [items, setItems] = useState([]);
-  const [cardNumber, setCardNumber] = useState('');
-  const [expirationDate, setExpirationDate] = useState('');
-  const [cvv, setCVV] = useState('');
+  const [cardNumber, setCardNumber] = useState("");
+  const [expirationDate, setExpirationDate] = useState("");
+  const [cvv, setCVV] = useState("");
   let navigate = useNavigate();
 
   const validateForm = () => {
-    if (cardNumber === '' || expirationDate === '' || cvv === '') {
-      toast.error('Please fill in all fields.');
+    if (cardNumber === "" || expirationDate === "" || cvv === "") {
+      toast.error("Please fill in all fields.");
     } else if (!isValidCardNumber(cardNumber)) {
-      toast.error('Please enter a valid card number.');
+      toast.error("Please enter a valid card number.");
     } else if (!isValidExpirationDate(expirationDate)) {
-      toast.error('Please enter a valid expiration date.');
+      toast.error("Please enter a valid expiration date.");
     } else if (!isValidCVV(cvv)) {
-      toast.error('Please enter a valid CVV.');
+      toast.error("Please enter a valid CVV.");
     } else {
-      toast.success('Payment successful!');
-      navigate('/mycourses');
+      toast.success("Payment successful!");
+      navigate("/mycourses");
     }
   };
 
@@ -39,19 +39,19 @@ export default function PaymentPage() {
   };
 
   const isValidCVV = (cvv) => {
-    const pattern = /^[0-9]{4}$/;
+    const pattern = /^[0-9]{3}$/;
     return pattern.test(cvv);
   };
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const q = query(collection(firestore, 'item')); // Replace 'item' with your collection name
+        const q = query(collection(firestore, "item")); // Replace 'item' with your collection name
         const querySnapshot = await getDocs(q);
         const itemData = querySnapshot.docs.map((doc) => doc.data());
         setItems(itemData);
       } catch (error) {
-        console.error('Error fetching items:', error);
+        console.error("Error fetching items:", error);
       }
     };
 
@@ -123,12 +123,12 @@ export default function PaymentPage() {
                       <span className="label3">Grand Total:</span>&#8377;
                       <span className="Amt">{item.Price}</span>
                     </div>
-                    <div className="disclaimer">
-                      By completing your purchase you agree to these Terms of Service.
-                    </div>
+                    <div className="disclaimer">By completing your purchase you agree to these Terms of Service.</div>
                   </p>
                 </div>
-                <button className='Buy-btn' onClick={() => validateForm() }>Purchase</button>
+                <button className="Buy-btn" onClick={() => validateForm()}>
+                  Purchase
+                </button>
               </div>
             ))}
           </div>
