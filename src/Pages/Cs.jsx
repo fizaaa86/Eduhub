@@ -127,7 +127,7 @@ const CSPage = () => {
           ) : selectedOption === "study-materials" ? (
             <div>
               <h2 className="Cusat-desc-heading">Study Materials:</h2>
-              <div className="PDFs">
+              <div className="StudyPDFs">
                 {pdfUrls.map((pdfUrl, index) => (
                   <div
                     key={index}

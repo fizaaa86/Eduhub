@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { getSingleStatus, getSingleUser } from "../../../api/FirestoreAPI";
+import { getSingleStatus, getSingleUser,getMentorPosts } from "../../../api/FirestoreAPI";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
@@ -15,6 +15,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
   const [allStatuses, setAllStatus] = useState([]);
   const [currentProfile, setCurrentProfile] = useState({});
   const [currentImage, setCurrentImage] = useState({});
+  const[course,setCourse] = useState([]);
   const [progress, setProgress] = useState(0);
   const [modal1Open, setModal1Open] = useState(false);
   const getImage = (event) => {
@@ -31,6 +32,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
     );
   };
 
+
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setAllStatus, location?.state?.id);
@@ -39,7 +41,37 @@ export default function ProfileCard({ onEdit, currentUser }) {
     if (location?.state?.email) {
       getSingleUser(setCurrentProfile, location?.state?.email);
     }
-  }, []);
+
+    let userEmail = currentProfile?.email; // Replace 'email' with the actual property name from currentProfile
+
+    // Check if userEmail is null or undefined, then use userEmail from localStorage
+    if (!userEmail) {
+      userEmail = localStorage.getItem('userEmail');
+    }
+
+    // Check if userEmail matches with currentUser.userEmail
+    const isCurrentUserMentor = userEmail === currentUser?.userEmail;
+
+    if (userEmail) {
+      if (isCurrentUserMentor) {
+        // Use currentUser.userEmail for getMentorPosts
+        getMentorPosts(setCourse, currentUser.userEmail);
+      } else {
+        // Use userEmail for getMentorPosts
+        getMentorPosts(setCourse, userEmail);
+      }
+    }
+
+    console.log(currentUser.userEmail);
+  }, [currentProfile, currentUser.userEmail]); // Make sure to include currentProfile and currentUser.userEmail as dependencies
+
+  // ... (rest of the component)
+
+// Make sure to include currentProfile and currentUser.userEmail as dependencies
+
+  // ... (rest of the component)
+
+  
 
 
   return (
@@ -57,7 +89,9 @@ export default function ProfileCard({ onEdit, currentUser }) {
         modal1Open={modal1Open}
         setModal1Open={setModal1Open}
         currentProfile={currentProfile}
+        currentUser={currentUser}
       />
+
       <div className="profile-carding">
       
           <div className="edit-btn">
@@ -83,7 +117,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
             </h3>
             <div className="mini-heading">
               <p className="year">{currentUser.YOS} Year</p>
-              <p className="headings">
+              <p className="heading">
                 {Object.values(currentProfile).length === 0
                   ? currentUser.Branch
                   : currentProfile?.Branch}
@@ -103,6 +137,29 @@ export default function ProfileCard({ onEdit, currentUser }) {
           </div>
         </div>
       </div>
+      
+      
+      <div className='profile-inner'>
+        <div className='profilecourse' 
+              >
+        {course.map((courses) => {
+            return (
+              <div  className="mycoursesec"key={courses.id}
+              onClick={() => navigate('/Course', {
+                state: { id: courses?.postID, email: courses.userEmail },})}
+              >
+                <div className='mycoursehead'>
+                <img className='myimages' src={courses.postImage} />
+                <p className='mycourses'>{courses.CourseName}</p>
+                </div>
+                <p className='mycoursestat'>{courses.status}</p>
+               
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      
     </>
   );
                 }  

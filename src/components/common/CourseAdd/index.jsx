@@ -41,7 +41,7 @@ export default function CourseStatus({ currentUser }) {
           })}
         </div>
         <div className='helpbot-container'>
-        
+        <HelpBot />
         </div>
       </div>
     </>
