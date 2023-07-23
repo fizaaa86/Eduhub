@@ -74,7 +74,7 @@ export default function Modal2({
           <Button
             key="next"
             type="primary"
-            onClick={()=>toast.success("Video uploaded")}
+            onClick={()=>toast.success("Video")}
           >
             Submit
           </Button>

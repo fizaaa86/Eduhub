@@ -23,13 +23,7 @@ export default function LoginComponent() {
       toast.error("Invalid user");
     }
   };
-
-  const googleSignIn = () => {
-    let response = GoogleSignInAPI();
-    console.log(response);
-    navigate("/dashboard");
-  };
-
+0
  
 
   return (
@@ -51,7 +45,7 @@ export default function LoginComponent() {
                 }
                 type="email"
                 className="common-input"
-                placeholder="Email or Phone"
+                placeholder="Email"
               />
               <input
                 onChange={(event) =>

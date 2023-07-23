@@ -38,11 +38,7 @@ export default function RegisterComponent() {
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignInAPI();
-    console.log(response);
-  };
-
+ 
   return (
     <div className="login-wrapper">
       <img className="login-image" src={img} alt="iphone-mockup" />
@@ -51,8 +47,8 @@ export default function RegisterComponent() {
       </div>
 
       <div className="login-wrapper-inner">
-        <h1 className="heading">Register</h1>
-        <p className="sub-heading">Start Exploring!</p>
+        <h1 className="headingr">Register</h1>
+        <p className="sub-headings">Start Exploring!</p>
 
         <div className="auth-inputs">
           <input
@@ -83,18 +79,15 @@ export default function RegisterComponent() {
         >
           Register
         </button>
-      </div>
-      <hr className="hr-text" data-content="or" />
-
-      <div className="google-btn-container">
-        <GoogleButton className="google-btn" onClick={googleSignIn} />
-        <p className="go-to-signup">
+        <h3 className="go-to-reg" >
           Existing User?
           <span className="join-now" onClick={() => navigate("/login")}>
             Login
           </span>
-        </p>
+        </h3>
       </div>
-    </div>
+       
+      </div>
+   
   );
 }

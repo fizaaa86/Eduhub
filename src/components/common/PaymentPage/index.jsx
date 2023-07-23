@@ -34,7 +34,7 @@ export default function PaymentPage() {
   };
 
   const isValidExpirationDate = (expirationDate) => {
-    const pattern = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+    const pattern = /^(0[1-9]|1[0-2])\/?(19[8-9]\d|20[0-4]\d|2050)$/;
     return pattern.test(expirationDate);
   };
 

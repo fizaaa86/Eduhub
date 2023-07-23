@@ -6,6 +6,7 @@
     padding-left: 40px;
     z-index: 0;
     color: #ffffff;
+    margin-left: -10px;
   }
   
 
@@ -49,13 +50,13 @@ margin-top: 8px;
 
 .nav-menu{
     display: grid;
-    grid-template-columns: repeat(6,auto);
+    grid-template-columns: repeat(2,auto);
     grid-gap: 10px;
     list-style: none;
     align-items: center;
     text-align: center;
     justify-content: end;
- margin-left: 790px;
+ margin-left: 690px;
 
  margin-top: -5px;
 
@@ -71,6 +72,7 @@ margin-top: 8px;
     text-decoration: none;
     color: rgb(250, 247, 247);
     padding: 0.7rem 1rem;
+    margin-left: -0px;
     white-space: nowrap;
     position: relative;
     font-family: 'Montserrat','sans-serif';
