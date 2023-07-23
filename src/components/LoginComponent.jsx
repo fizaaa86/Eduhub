@@ -66,10 +66,7 @@ export default function LoginComponent() {
               Login
             </button>
           </div>
-          <hr className="hr-text" data-content="or" />
-
-          <div className="google-btn-container">
-            <GoogleButton className="google-btn" onClick={googleSignIn} />
+          
             <p className="go-to-signup">
               New User?
               <span className="join-now" onClick={() => navigate("/register")}>
@@ -78,7 +75,7 @@ export default function LoginComponent() {
             </p>
           </div>
         </div>
-      </div>
+    
     </div>
   );
 }

@@ -26,12 +26,4 @@ export const MenuData = [
 ];
  
     
-    {
-        title: "Login",
-        url:"http://localhost:5173/login",
-        cName:"nav-links",
-    },
-
-
-]
 
