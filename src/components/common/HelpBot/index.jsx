@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 
-const MyChatBot = () => {
+const MyChatBot = ({active}) => {
   const [optionSelected, setOptionSelected] = useState(false);
 
   // Define the chat steps

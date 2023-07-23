@@ -15,7 +15,7 @@ export default function DashboardLayout() {
       <SideBar />
       <div className='dashboard-content'>
         <DashBoard currentUser={currentUser} />
-      </div>
+      </div> 
     </div>
   );
   
