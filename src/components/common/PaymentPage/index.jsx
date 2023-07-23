@@ -12,7 +12,6 @@ export default function PaymentPage() {
   const [expirationDate, setExpirationDate] = useState("");
   const [cvv, setCVV] = useState("");
   let navigate = useNavigate();
-  const [load, setLoad] = useState(false);
   const validateForm = () => {
     if (cardNumber === "" || expirationDate === "" || cvv === "") {
       toast.error("Please fill in all fields.");
@@ -55,7 +54,6 @@ export default function PaymentPage() {
       } catch (error) {
         console.error("Error fetching items:", error);
       }
-      setLoad(!load);
     };
 
     fetchItems();
@@ -63,7 +61,6 @@ export default function PaymentPage() {
 
   return (
     <div className="Payment-main">
-      {console.log(load, items)}
       <HeadBar className="Headbar" />
       <div className="Payment-sub">
         <div className="Payment-left">Checkout</div>
