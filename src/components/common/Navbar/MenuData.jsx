@@ -5,7 +5,6 @@ export const MenuData = [
     cName: "nav-links",
   },
 
-
   {
     title: "About",
     url: "#",
@@ -20,7 +19,7 @@ export const MenuData = [
 
   {
     title: "Login",
-    url: "http://localhost:5173/login",
+    url: "/login",
     cName: "nav-links",
   },
 ];

@@ -56,32 +56,31 @@ export default function RegisterComponent() {
 
         <div className="auth-inputs">
           <input
-            onChange={(event) =>
-              setCredentials({ ...credentials, name: event.target.value })
-            }
+            onChange={(event) => setCredentials({ ...credentials, name: event.target.value })}
             type="text"
             className="common-input"
             placeholder="Name"
           />
 
           <input
-            onChange={(event) =>
-              setCredentials({ ...credentials, email: event.target.value })
-            }
+            onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
             type="email"
             className="common-input"
             placeholder="Email"
           />
           <input
-            onChange={(event) =>
-              setCredentials({ ...credentials, password: event.target.value })
-            }
+            onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
             type="password"
             className="common-input"
             placeholder="Password"
           />
         </div>
-        <button onClick={register} className="login-btn">
+        <button
+          onClick={() => {
+            register();
+          }}
+          className="login-btn"
+        >
           Register
         </button>
       </div>
