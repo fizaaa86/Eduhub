@@ -255,6 +255,16 @@ export const postAnswers = (doubtsMessage, timeStamp, name, imageLink, CourseNam
   } catch (err) {
     console.log(err);
   }
+
+}
+export const updatePost = (id, status, postImage) => {
+  let docToUpdate = doc(postsRef, id);
+  try {
+    updateDoc(docToUpdate, { status, postImage });
+    toast.success("Post has been updated!");
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const getComments = (postId, setComment) => {

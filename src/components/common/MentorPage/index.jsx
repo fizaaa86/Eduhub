@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { courseStatus, videotatus,getMentorPosts } from '../../../api/FirestoreAPI';
+import { courseStatus, videotatus,getMentorPosts,updatePost } from '../../../api/FirestoreAPI';
 import ModalComponent from '../Modal';
 import {BsBookmark} from "react-icons/bs";
 import Modal2 from '../Modal2';
@@ -32,6 +32,7 @@ export default function MentorPage({ currentUser }) {
   const [Feature5,setFeature5] = useState('');
   const [Feature6,setFeature6] = useState('');
   const [description,setdescription] = useState('');
+  const [currentPost, setCurrentPost] = useState({});
   const [isEdit,setisEdit] = useState(false);
 const [postID,setPostID] = useState('');
 const getImage = (event) => {
@@ -81,19 +82,22 @@ const getImage = (event) => {
 
   const getEditData = (posts) => {
     setModalOpen(true);
+    setCurrentPost(posts);
 setStatus(posts?.status);
 setisEdit(true);
   }
 
   const updateStatus = () =>
   {
-    console.log(status)
+    updatePost(currentPost.id, status, postImage);
+    setModalOpen(false);
+    setModal1Open(true);
   }
    
   useMemo(() =>{
     getMentorPosts (setAllStatuses,userEmail);
   },[]);
-
+console.log(currentPost.id);
   return (
     <>
       <div className='Mentor-status-main'>

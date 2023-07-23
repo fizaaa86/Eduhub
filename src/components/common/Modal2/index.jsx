@@ -26,6 +26,7 @@ export default function Modal2({
       return updatedVideos;
     });
   };
+  console.log(CourseName)
 
   const handleUpload = async () => {
     if (videos.length > 0) {
