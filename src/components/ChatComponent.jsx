@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import ChatNavbar from './common/ChatNavbar';
-import Chat from './common/Chat';
-import SendMessage from './common/SendMessage';
-import { auth } from '../firebaseConfig';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useLocation } from 'react-router-dom';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import { firestore } from '../firebaseConfig';
-import '../Sass/Chat.scss';
+import React, { useState } from "react";
+import ChatNavbar from "./common/ChatNavbar";
+import Chat from "./common/Chat";
+import SendMessage from "./common/SendMessage";
+import { auth } from "../firebaseConfig";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useLocation } from "react-router-dom";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { firestore } from "../firebaseConfig";
+import "../Sass/Chat.scss";
 
 const styles = {
-  appContainer: 'appContainer',
-  sectionContainer: 'sectionContainer',
-  leftContainer: 'leftContainer', // CSS class for the left container
+  appContainer: "appContainer",
+  sectionContainer: "sectionContainer",
+  leftContainer: "leftContainer", // CSS class for the left container
 };
 
 function ChatComponent() {
@@ -20,18 +20,18 @@ function ChatComponent() {
   const location = useLocation();
   const currentCourse = location?.state?.currentCourse;
   const id = location?.state?.id;
-  const [postImage, setPostImage] = useState('');
+  const [postImage, setPostImage] = useState("");
 
   async function searchDocument(currentCourse) {
-    const collectionRef = collection(firestore, 'Courses');
+    const collectionRef = collection(firestore, "Courses");
 
-    const q = query(collectionRef, where('CourseName', '==', currentCourse));
+    const q = query(collectionRef, where("CourseName", "==", currentCourse));
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((doc) => {
       // Handle the matching document here
       const { postImage } = doc.data();
-      console.log('Matching Document:', postImage);
+      console.log("Matching Document:", postImage);
       // Access the postImage field from the document data
       setPostImage(postImage); // Set the postImage state variable
     });
@@ -40,13 +40,11 @@ function ChatComponent() {
   // Call the searchDocument function with the currentCourse value
   searchDocument(currentCourse);
 
-  console.log('Current Course:', currentCourse); // Log the value of currentCourse
+  console.log("Current Course:", currentCourse); // Log the value of currentCourse
 
   return (
     <div className="Chatroom">
-      
       <div className={styles.appContainer}>
-       
         <section className={styles.sectionContainer}>
           {/* Navbar */}
           <ChatNavbar currentCourse={currentCourse} postImage={postImage} />

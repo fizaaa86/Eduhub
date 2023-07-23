@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { auth, firestore } from "../../firebaseConfig";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { getCurrentUser } from "../../api/FirestoreAPI";
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane } from "react-icons/fa";
 
 const styles = {
   form: "form",
@@ -21,7 +21,8 @@ const SendMessage = ({ scroll, currentCourse }) => {
     }
 
     const { uid, displayName } = auth.currentUser;
-    await addDoc(collection(firestore, `${currentCourse}Room`), { // Add "Room" suffix to currentCourse
+    await addDoc(collection(firestore, `${currentCourse}Room`), {
+      // Add "Room" suffix to currentCourse
       text: input,
       name: displayName,
       uid,
@@ -33,18 +34,18 @@ const SendMessage = ({ scroll, currentCourse }) => {
 
   return (
     <div className="SendMessage">
-    <form onSubmit={sendMessage} className={styles.form}>
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className={styles.input}
-        type="text"
-        placeholder="Message"
-      />
-      <button className={styles.button} type="submit">
-        <FaPaperPlane />
-      </button>
-    </form>
+      <form onSubmit={sendMessage} className={styles.form}>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className={styles.input}
+          type="text"
+          placeholder="Message"
+        />
+        <button className={styles.button} type="submit">
+          <FaPaperPlane />
+        </button>
+      </form>
     </div>
   );
 };

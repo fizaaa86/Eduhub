@@ -16,7 +16,7 @@ import {
 import { toast } from "react-toastify";
 
 let postsRef = collection(firestore, "Courses");
-let videoRef = collection(firestore,"Videos");
+let videoRef = collection(firestore, "Videos");
 let userRef = collection(firestore, "users");
 let likeRef = collection(firestore, "likes");
 let commentsRef = collection(firestore, "Reviews");
@@ -43,7 +43,6 @@ export const videotatus = (object) => {
     });
 };
 
-
 export const getStatus = (setAllStatus) => {
   const q = query(postsRef, orderBy("timeStamp"));
   onSnapshot(q, (response) => {
@@ -66,20 +65,16 @@ export const getVideos = (setOwned) => {
   });
 };
 
-export const getChatRoom = (name,setCurrentCourse) =>
-{
+export const getChatRoom = (name, setCurrentCourse) => {
   setCurrentCourse(name);
-}
-
-export const getPrice = (setPrices,id) => {
-  const singlePriceQuery = query(postsRef, where("postID", "==", id));
-  onSnapshot(singlePriceQuery, (response) => {
-    console.log(
-      response
-    );
-  });
 };
 
+export const getPrice = (setPrices, id) => {
+  const singlePriceQuery = query(postsRef, where("postID", "==", id));
+  onSnapshot(singlePriceQuery, (response) => {
+    console.log(response);
+  });
+};
 
 export const getAllUsers = (setAllUsers) => {
   onSnapshot(userRef, (response) => {
@@ -129,7 +124,6 @@ export const getMentorPosts = (setAllStatuses, userEmail) => {
     );
   });
 };
-
 
 export const getSingleUser = (setCurrentUser, email) => {
   const singleUserQuery = query(userRef, where("email", "==", email));
@@ -190,22 +184,22 @@ export const likePost = (userId, postId, isLiked) => {
 };
 
 export const getPosts = async (setPosts) => {
-  const data = await getDocs( postsRef );
- setPosts(data.docs.map((doc) => ({...doc.data(),  id: doc.id })));
-}
+  const data = await getDocs(postsRef);
+  setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+};
 
 export const Amount = (price) => {
   return <p>{price}</p>;
 };
 export const createFirestoreCollection = async (data) => {
   try {
-    const collectionRef = collection(firestore, 'item'); // Replace 'your-collection-name' with your desired collection name
+    const collectionRef = collection(firestore, "item"); // Replace 'your-collection-name' with your desired collection name
     const querySnapshot = await getDocs(collectionRef);
 
     if (querySnapshot.size === 0) {
       // Only create the document if the collection is empty
       await addDoc(collectionRef, data); // Add the document with the provided data to the collection
-      console.log('Collection created successfully!');
+      console.log("Collection created successfully!");
     } else {
       // Delete the existing document
       querySnapshot.forEach((doc) => {
@@ -214,58 +208,54 @@ export const createFirestoreCollection = async (data) => {
 
       // Create a new document
       await addDoc(collectionRef, data);
-      console.log('Existing document deleted. New collection created successfully!');
+      console.log("Existing document deleted. New collection created successfully!");
     }
   } catch (error) {
-    console.error('Error creating collection:', error);
+    console.error("Error creating collection:", error);
   }
 };
 
-export const postComment = (postId,comment,timeStamp,name,imageLink) => {
-  try{
-      addDoc(commentsRef,{
-        postId,
-        comment,
-        timeStamp,
-        name,
-        imageLink,
-      })
+export const postComment = (postId, comment, timeStamp, name, imageLink) => {
+  try {
+    addDoc(commentsRef, {
+      postId,
+      comment,
+      timeStamp,
+      name,
+      imageLink,
+    });
+  } catch (err) {
+    console.log(err);
   }
-  catch(err){
-    console.log(err)
-  }
-}
+};
 
+export const postDoubts = (postId, doubtsMessage, timeStamp, name, imageLink, CourseName) => {
+  try {
+    addDoc(DoubtRef, {
+      postId,
+      doubtsMessage,
+      timeStamp,
+      name,
+      imageLink,
+      CourseName,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const postAnswers = (doubtsMessage, timeStamp, name, imageLink, CourseName) => {
+  try {
+    addDoc(AnswerRef, {
+      doubtsMessage,
+      timeStamp,
+      name,
+      imageLink,
+      CourseName,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 
-export const postDoubts = (postId,doubtsMessage,timeStamp,name,imageLink,CourseName) => {
-  try{
-      addDoc(DoubtRef,{
-        postId,
-        doubtsMessage,
-        timeStamp,
-        name,
-        imageLink,
-        CourseName,
-      })
-  }
-  catch(err){
-    console.log(err)
-  }
-}
-export const postAnswers = (doubtsMessage,timeStamp,name,imageLink,CourseName) => {
-  try{
-      addDoc(AnswerRef,{
-      
-        doubtsMessage,
-        timeStamp,
-        name,
-        imageLink,
-        CourseName,
-      })
-  }
-  catch(err){
-    console.log(err)
-  }
 }
 export const updatePost = (id, status, postImage) => {
   let docToUpdate = doc(postsRef, id);
@@ -277,7 +267,7 @@ export const updatePost = (id, status, postImage) => {
   }
 };
 
-export const getComments = (postId,setComment) => {
+export const getComments = (postId, setComment) => {
   try {
     let singlePostQuery = query(commentsRef, where("postId", "==", postId));
 
@@ -295,7 +285,7 @@ export const getComments = (postId,setComment) => {
     console.log(err);
   }
 };
-export const getDoubts = (postId,setComment) => {
+export const getDoubts = (postId, setComment) => {
   try {
     let singlePostQuery = query(DoubtRef, where("postId", "==", postId));
 
