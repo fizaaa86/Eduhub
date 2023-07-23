@@ -11,8 +11,10 @@ import { ToastContainer } from 'react-toastify';
 import { app } from './firebaseConfig.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
+<div>
+<RouterProvider router={router} />
     <ToastContainer />
-  </React.StrictMode>,
+</div>
+    
+
 )
