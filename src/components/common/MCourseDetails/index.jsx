@@ -9,7 +9,8 @@ import { getComments } from '../../../api/FirestoreAPI';
 import { Document, Page, pdfjs } from 'react-pdf'; // Step 1: Import Document, Page, and pdfjs
 import { ref, getDownloadURL, listAll } from 'firebase/storage';
 import { storage } from '../../../firebaseConfig';
-
+import Modal2 from "../Modal2"
+import MaterialUpload from "../MaterialUpload"
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export default function MCourseDetails({ currentUser, id }) {
@@ -20,7 +21,8 @@ export default function MCourseDetails({ currentUser, id }) {
   const [comments, setComments] = useState([]);
   const [videoUrls, setVideoUrls] = useState([]); // Step 2: State variable for video URLs
   const [pdfUrls, setPdfUrls] = useState([]); // Step 2: State variable for PDF URLs
-
+  const [modal2Open, setModal2Open] = useState(false);
+  const [modal3Open, setModal3Open] = useState(false);
   useMemo(() => {
     if (location?.state?.id) {
       getSingleStatus(setPosts, location?.state?.id);
@@ -69,14 +71,8 @@ export default function MCourseDetails({ currentUser, id }) {
     });
   }, [posts]);
 
-  const handleCreateCollection = (data) => {
-    createFirestoreCollection(data);
-  };
-
-  const handleBuyClick = (data) => {
-    handleCreateCollection(data);
-    navigate('/payment');
-  };
+  
+  
 
   const handleCloseReview = () => {
     setShowCommentBox(false);
@@ -85,6 +81,7 @@ export default function MCourseDetails({ currentUser, id }) {
   const handlePdfClick = (pdfUrl) => {
     navigate(`/materials?pdfUrl=${encodeURIComponent(pdfUrl)}`);
   };
+
 
   return (
     <div className="Course-detail">
@@ -152,6 +149,25 @@ export default function MCourseDetails({ currentUser, id }) {
 
               {/* Step 4: Render Videos */}
               <div className="Videos">
+              <div className="Video-header">Videos</div>
+            
+
+{/* Render Modal2 for video uploading */}
+<Modal2
+  modal2Open={modal2Open}
+ 
+  setModal2Open={setModal2Open}
+  
+  CourseName={posting?.CourseName} // Replace 'posting?.CourseName' with the actual property name from posting
+  // Pass the handleDeleteVideo function to Modal2
+/>
+<MaterialUpload
+                  modal3Open={modal3Open}
+                  setModal3Open={setModal3Open}
+                  CourseName={posting?.CourseName} 
+             />
+
+
                 <div className="VideoList">
                   {videoUrls[index] &&
                     videoUrls[index].map((url, innerIndex) => (
@@ -163,10 +179,17 @@ export default function MCourseDetails({ currentUser, id }) {
                       </div>
                     ))}
                 </div>
+                <button className='videoadd' onClick={() => setModal2Open(true)}>Upload Videos</button>
               </div>
 
               {/* Step 4: Render PDFs */}
               <div className="PDFs">
+              <button
+                  className="Resources"
+                  onClick={() => {
+                    setModal3Open(true);
+                  }}
+                  />
                 <div className="Video-header">Materials</div>
                 {pdfUrls[index] && pdfUrls[index].length > 0 ? (
                   pdfUrls[index].map((url, innerIndex) => (
@@ -183,7 +206,7 @@ export default function MCourseDetails({ currentUser, id }) {
                   <div className="Materialbox">
                     <p>No materials</p>
                   </div>
-                  
+              
                 )}
               </div>
               <div className="User-reviews">
@@ -210,6 +233,7 @@ export default function MCourseDetails({ currentUser, id }) {
           );
         })}
       </div>
+    
     </div>
   );
 }

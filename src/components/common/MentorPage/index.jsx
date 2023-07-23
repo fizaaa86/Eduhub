@@ -61,7 +61,7 @@ const getImage = (event) => {
     await courseStatus(object);
     setModalOpen(false);
     setStatus('');
-    setModal2Open(true);
+   setModal1Open(false);
   };
 
   const sendVideo = async () => {
@@ -75,7 +75,7 @@ const getImage = (event) => {
     };
     await videotatus(object);
     setModal2Open(false);
-    setModal3Open(true);
+  
     setStatus('');
   };
   const imageSrc = currentUser.imageLink ? currentUser.imageLink : user;

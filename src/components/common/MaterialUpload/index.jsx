@@ -87,11 +87,7 @@ export default function FileUploadModal({
             )}
           </div>
         ))}
-        {progress !== 0 && (
-          <div className="overall-progress-bar">
-            <Progress type="circle" percent={progress} />
-          </div>
-        )}
+        
       </div>
     </Modal>
   );

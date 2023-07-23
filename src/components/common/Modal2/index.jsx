@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, Progress } from "antd";
 import { storage } from '../../../firebaseConfig';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
+import { toast } from "react-toastify";
 export default function Modal2({
   modal2Open,
   modal3Open,
@@ -74,9 +74,9 @@ export default function Modal2({
           <Button
             key="next"
             type="primary"
-            onClick={() => setModal3Open(true)}
+            onClick={()=>toast.success("Video uploaded")}
           >
-            Next
+            Submit
           </Button>
         ]}
       >

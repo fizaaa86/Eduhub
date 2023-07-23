@@ -10,3 +10,21 @@
 {
     background-color: rgb(123, 17, 17);
 }
+.videoadd
+{
+    width:110px;
+    border-radius: 5px;
+    height: 40px;
+    margin-left: 0px;
+    margin-top:30px;
+    background-color: rgb(225, 60, 38);
+    font-family: Montserrat;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    border: none;
+}
+.videoadd:hover
+{
+    background-color: rgb(176, 24, 4); 
+}
