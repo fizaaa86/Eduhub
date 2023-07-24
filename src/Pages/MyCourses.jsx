@@ -1,9 +1,9 @@
 import React from 'react'
 import MyCoursesComponent from '../components/MyCoursesComponent'
-export default function MyCourses() {
+export default function MyCourses({currentUser}) {
   return (
     <div>
-        <MyCoursesComponent />
+        <MyCoursesComponent currentUser = {currentUser} />
     </div>
   )
 }

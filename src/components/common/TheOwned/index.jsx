@@ -66,6 +66,7 @@ export default function TheOwned() {
   }, [location]);
 
   useEffect(() => {
+    //console.log(posts);
     posts.forEach((posting, index) => {
       const VideosListRef = ref(storage, `${posting.CourseName}/`);
       setCurrentCourse(posting.CourseName);

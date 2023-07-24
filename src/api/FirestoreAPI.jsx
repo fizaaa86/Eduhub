@@ -237,6 +237,9 @@ export const updateUserCourses = async (postingid, userid) => {
   await updateDoc(userDocRef, { courses: coursesArray });
 };
 
+
+
+
 ///
 
 export const postComment = (postId, comment, timeStamp, name, imageLink) => {

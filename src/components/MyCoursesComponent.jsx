@@ -1,9 +1,9 @@
 import React from 'react'
 import Owned from './common/Owned'
-export default function () {
+export default function MyCoursesComponent({currentUser}) {
   return (
     <div>
-        <Owned />
+        <Owned currentUser= {currentUser}/>
     </div>
   )
 }
