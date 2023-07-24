@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
+import React, { useState } from "react";
+import { LoginAPI, GoogleSignInAPI, ForgetPassword } from "../api/AuthAPI";
 import logo from "../assets/logo.png";
 import img from "../assets/online-02.jpg";
 import Navbar from "../components/common/Navbar/Navbar";
@@ -11,6 +11,8 @@ import "../Sass/LoginComponent.scss";
 export default function LoginComponent() {
   let navigate = useNavigate();
   const [credentials, setCredentials] = useState({});
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
+  const [forgotPasswordEmail, setForgotPasswordEmail] = useState("");
 
   const login = async () => {
     try {
@@ -24,10 +26,18 @@ export default function LoginComponent() {
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignInAPI();
-    console.log(response);
-    navigate("/dashboard");
+  const handleResetPassword = () => {
+    ForgetPassword(forgotPasswordEmail)
+      .then(() => {
+        toast.success("Password reset email sent.");
+        setIsForgotPassword(false);
+        setForgotPasswordEmail("");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error("Failed to send password reset email. Please try again.");
+      });
   };
 
   return (
@@ -38,37 +48,65 @@ export default function LoginComponent() {
         <div className="login-wrapper-inner">
           <div className="login-right">
             <h1 className="headings"></h1>
+            <p className="sub-heading">{isForgotPassword ? "Reset Password" : "Keep Exploring!"}</p>
 
-            <p className="sub-heading">Keep Exploring!</p>
+            {!isForgotPassword ? (
+              <div className="auth-inputs">
+                <input
+                  onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
+                  type="email"
+                  className="common-input"
+                  placeholder="Email or Phone"
+                />
+                <input
+                  onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
+                  type="password"
+                  className="common-input"
+                  placeholder="Password"
+                />
+              </div>
+            ) : (
+              <div className="auth-inputs">
+                <input
+                  onChange={(event) => setForgotPasswordEmail(event.target.value)}
+                  type="email"
+                  className="common-input"
+                  placeholder="Email"
+                />
+              </div>
+            )}
 
-            <div className="auth-inputs">
-              <input
-                onChange={(event) => setCredentials({ ...credentials, email: event.target.value })}
-                type="email"
-                className="common-input"
-                placeholder="Email or Phone"
-              />
-              <input
-                onChange={(event) => setCredentials({ ...credentials, password: event.target.value })}
-                type="password"
-                className="common-input"
-                placeholder="Password"
-              />
-            </div>
-            <button onClick={login} className="login-btn">
-              Login
-            </button>
-          </div>
-          <hr className="hr-text" data-content="or" />
+            {!isForgotPassword ? (
+              <button onClick={login} className="login-btn">
+                Login
+              </button>
+            ) : (
+              <button onClick={handleResetPassword} className="login-btn">
+                Reset Password
+              </button>
+            )}
 
-          <div className="google-btn-container">
-            <GoogleButton className="google-btn" onClick={googleSignIn} />
-            <p className="go-to-signup">
-              New User?
-              <span className="join-now" onClick={() => navigate("/register")}>
-                Register
-              </span>
-            </p>
+            {!isForgotPassword ? (
+              <p className="go-to-signup">
+                New User?
+                <span className="join-now" onClick={() => navigate("/register")}>
+                  Register
+                </span>
+              </p>
+            ) : (
+              <p className="go-to-remember">
+                Remember your password?
+                <span className="join-now" onClick={() => setIsForgotPassword(false)}>
+                  Login
+                </span>
+              </p>
+            )}
+
+            {!isForgotPassword && (
+              <p className="forgot-password-link" onClick={() => setIsForgotPassword(true)}>
+                Forgot Password?
+              </p>
+            )}
           </div>
         </div>
       </div>

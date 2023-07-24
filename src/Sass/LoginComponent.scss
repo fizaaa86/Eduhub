@@ -126,6 +126,16 @@ body {
   margin-left: -40px;
   z-index: 0;
 }
+.reg-image
+{
+  width: 1560px;
+  height: 900px;
+ 
+  margin-top: -100px;
+  position: absolute;
+  margin-left: -40px;
+  z-index: 0;
+}
 
 .headings {
   font-family: Montserrat;
@@ -135,12 +145,26 @@ body {
   margin-left:100px;
   margin-left: 80px;
   color: rgba(255, 255, 255, 0.9);
+}.headingr {
+  font-family: Montserrat;
+  font-weight: 900;
+  margin-top: 3px;
+  font-size: 40px;
+ 
+  margin-left: 5px;
+  color: rgba(255, 255, 255, 0.9);
 }
 /* ... (existing code) */
 
 /* Typing Effect for "Login" */
 .headings::after {
   content: " Login";
+  opacity: 0;
+  animation: typingEffectLogin 2s steps(6) forwards, cursorBlink 1s infinite;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Add the text shadow here */
+}
+.headingr::after {
+  content: "Register";
   opacity: 0;
   animation: typingEffectLogin 2s steps(6) forwards, cursorBlink 1s infinite;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Add the text shadow here */
@@ -163,9 +187,24 @@ body {
   font-family: Montserrat;
   margin-left: 80px;
 }
+.sub-headings {
+  margin-top: -20px;
+  font-family: Montserrat;
+  margin-left: 0px;
+}
 
 
+.forgot-password-link
+{
+  color: white;
+  margin-left: 80px;
+  cursor: pointer;
+}
 
+.go-to-remember
+{
+  margin-left: 20px;
+}
 .login-btn {
   width: 300px;
   height: 50px;
@@ -207,56 +246,31 @@ body {
 }
 
 
-.hr-text {
-  line-height: 1em;
-  position: relative;
-  outline: 0;
-  border: 0;
-  color: black;
-  text-align: center;
-  margin-top: 10px;
-  height: 1.5em;
-  opacity: 0.5;
-  &:before {
-    content: "";
-    // use the linear-gradient for the fading effect
-    // use a solid background color for a solid bar
-    background: linear-gradient(to right, transparent, #818078, transparent);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-  }
-  &:after {
-    content: attr(data-content);
-    position: relative;
-    display: inline-block;
-    color: black;
-    padding: 0 0.5em;
-    line-height: 1.5em;
-    // this is really the only tricky part, you need to specify the background color of the container element...
-    color: #818078;
-    background-color: #fcfcfa;
-  }
-}
 
-.google-btn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  .google-btn {
-    width: 300px !important;
-  }
+
 
   .go-to-signup {
     font-size: 18px;
+    margin-top:10px;
+    margin-left: 60px;
+    font-family: Montserrat;
+    font-weight: 700;
+    color: white;
+  }
+  .go-to-reg
+  {
+    font-size: 18px;
+    margin-top:10px;
+    margin-left: 0px;
+    font-family: Montserrat;
+    font-weight: 700;
+    color: white;
   }
 
   .join-now {
-    color: $Eduhub1;
+    color: white;
+    font-weight: 700;
     font-family: Montserrat;
     cursor: pointer;
     font-size: 18px;
@@ -282,4 +296,4 @@ body {
     justify-content: space-between;
     padding: 20px;
   }
-}
+

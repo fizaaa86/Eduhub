@@ -4,8 +4,10 @@ import {
   signInWithPopup,
   sendEmailVerification,
   GoogleAuthProvider,
-  signOut
+  signOut,
+  sendPasswordResetEmail
  } from 'firebase/auth'
+ import { getCurrentUser } from './FirestoreAPI';
 import { auth } from "../firebaseConfig";
 
 
@@ -17,6 +19,19 @@ export const LoginAPI = (email,password) => {
         return err;
     }
 };
+export const ForgetPassword = (email) =>
+{
+  sendPasswordResetEmail(auth, email)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+}
 
 export const RegisterAPI = async (email, password) => {
   try {
