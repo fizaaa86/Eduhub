@@ -163,7 +163,6 @@
   margin-left: -30px;
 }
 
-
 .user-div {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
@@ -187,10 +186,11 @@
   top: 0;
 }
 .ChatNavbar {
-  display: grid;
+  display: flex;
+  z-index: 9999;
   background-color: #ffffff;
   width: 695px;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  //grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
   position: fixed;
   padding-left: 2%;
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25);

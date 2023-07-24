@@ -12,6 +12,8 @@ const styles = {
 
 const SendMessage = ({ scroll, currentCourse }) => {
   const [input, setInput] = useState("");
+  const [currentUser, setCurrentUser] = useState();
+  getCurrentUser(setCurrentUser);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -21,10 +23,11 @@ const SendMessage = ({ scroll, currentCourse }) => {
     }
 
     const { uid, displayName } = auth.currentUser;
+    console.log(currentUser);
     await addDoc(collection(firestore, `${currentCourse}Room`), {
       // Add "Room" suffix to currentCourse
       text: input,
-      name: displayName,
+      name: displayName ? displayName : currentUser.Fullname,
       uid,
       timestamp: serverTimestamp(),
     });

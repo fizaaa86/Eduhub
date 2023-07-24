@@ -30,7 +30,7 @@ export default function RegisterComponent() {
       let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Account created");
       localStorage.setItem("userEmail", res.user.email);
-      postUserData({ name: credentials.name, email: credentials.email, courses: [] });
+      postUserData({ name: credentials.name, email: credentials.email, courses: [], imageLink: "" });
       navigate("/dashboard");
     } catch (err) {
       console.log(err);
